@@ -1,8 +1,12 @@
-notes for AQA Computing (2510)
-==============================
+Notes on AS & A-level AQA Computing (2510)
+==========================================
 
 This repo holds all my notes, code, and any other materials I own copyright to
 relevant to the AQA Computing (2510) course (AS and A-level).
+
+I'm considering making it possible for other people to contribute (if anyone
+wants to for any reason, hah), so if you want to make a pull request, go ahead
+and we can sort something out (in the context of copyright, that is).
 
 
 Links
