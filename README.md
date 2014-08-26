@@ -24,3 +24,15 @@ to apply for special permission to use anything of theirs ._.
 They don't go out their way to tell you, either -- actually useful information
 is hidden on a page not found on their sitemap (I kinda don't know how I got
 there): [Publishing past papers and mark schemes](http://www.aqa.org.uk/exams-administration/exams-guidance/find-past-papers-and-mark-schemes/publishing-past-papers-and-mark-schemes)
+
+
+Copying
+-------
+
+All of the source code in this repository may be redistributed and/or modified
+under the terms of the MIT license (see the file `LICENSE`). (do I need to
+define 'source code' better? how should I phrase this, anyway? 6_9)
+
+All other materials in this repository are currently not licensed (though this
+is not a long-term plan). If you wish to use anything, contact me on my email -
+I'll probably allow you to do whatever!
