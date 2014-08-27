@@ -1,3 +1,8 @@
+Specification: *"Introduction to Principles of Computation: Focus on studying
+                 the processes of computation and understanding why and where
+                 they are important in Computing."*
+
+
 Abstraction
 -----------
 
