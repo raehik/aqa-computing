@@ -1,21 +1,31 @@
 Specification: *"Understand the problem."*
 
 
-Defining a problem
-------------------
+How to solve a problem
+----------------------
 
-**Given**:
+### 1. Understand and define the problem
 
-**Goal**:
+**Given(s)**: initial state
 
-**Ownership**:
+**Goal**: desired/target state
 
-**Resources & constraints**:
+**Ownership**: "who does what" (? from spec.)
+
+**Resources & constraints**: "tools, knowledge, skills, materials, rules,
+                             regulations, guidelines, boundaries, timings"...
 
 
-Defining boundaries
--------------------
+### 2. Define boundaries
+
+
+### 3. Plan solution
+
+
+### 4. Check solution
 
 
 Solution design strategies
 --------------------------
+
+top-down, step-wise refinement, sub-problems, modules
