@@ -1,19 +1,40 @@
-Specification: *"Understand the problem."*
-
-
 How to solve a problem
 ----------------------
 
 ### 1. Understand and define the problem
 
-**Given(s)**: initial state
+**Problem:** a given where it is *not immediately obvious* how to reach the
+             goal
 
-**Goal**: desired/target state
+**Given(s):** initial state
 
-**Ownership**: "who does what" (? from spec.)
+**Goal:** desired/target state
 
-**Resources & constraints**: "tools, knowledge, skills, materials, rules,
+**Ownership:** "who does what" (? from spec.)
+
+**Resources & constraints:** "tools, knowledge, skills, materials, rules,
                              regulations, guidelines, boundaries, timings"...
+
+An ill-defined problem is a problem in itself -- without a clear understanding
+of whatever you are trying to solve, you'll probably find it a lot harder.
+Therefore, the first thing you want to do in the process of problem solving is
+to **understand the problem**. That is, you must understand the current
+situation (the **given**), the target situation (the **goal**) and what you
+have to help you reach it (the **resources**).
+
+The textbook says that a well-defined problem has these variables clearly
+defined:
+    - given
+    - goal
+    - ownership
+    - resources/constraints
+[Resources and constraints are sort of the same thing, but the former positive
+and the latter negative (e.g. useful things vs. restrictions & rules)]
+
+
+
+given,
+goal, resources/constraints
 
 
 ### 2. Define boundaries
