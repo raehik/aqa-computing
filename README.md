@@ -30,7 +30,7 @@ Copying
 -------
 
 All of the source code in this repository may be redistributed and/or modified
-under the terms of the MIT license (see the file `LICENSE`). (do I need to
+under the terms of the MIT license (see the file `LICENSE-MIT`). (do I need to
 define 'source code' better? how should I phrase this, anyway? 6_9)
 
 All other materials in this repository are currently not licensed (though this
