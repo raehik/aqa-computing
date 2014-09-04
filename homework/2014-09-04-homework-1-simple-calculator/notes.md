@@ -25,3 +25,9 @@ and stuff as well :D
 
 cba to do 4 programs, so I stuffed them all into one and added a 'random'
 operator too. case statements, woohoo!
+
+
+Assignment turn-in description
+------------------------------
+
+
