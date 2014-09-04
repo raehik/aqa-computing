@@ -30,4 +30,11 @@ operator too. case statements, woohoo!
 Assignment turn-in description
 ------------------------------
 
+folder: https://github.com/raehik/aqa-computing/tree/master/homework/2014-09-04-homework-1-simple-calculator
 
+hahah, spent a little long on this. included summary for posterity & short write-up (may not do latter for later short programs/investigations).
+
+decided on a 'calculator' program rather than 4 'functions' as separate programs :P
+see attached image for example output
+
+compiled with GCC 4.9.1 -Wall, no warnings or errors (see image).
