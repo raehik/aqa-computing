@@ -1,4 +1,4 @@
-https://www.edmodo.com/post/292605355
+04/09/14 https://www.edmodo.com/post/292605355
 
 Summary
 -------
@@ -15,3 +15,13 @@ Write 4 separate programs:
 Use of %d and %f in printf is mentioned.
 
 Told to write in C on [ideone.com](http://www.ideone.com).
+
+
+Write-up
+--------
+
+lol, it took me like 45 mins -- but I did do all this, plus I used a Makefile
+and stuff as well :D
+
+cba to do 4 programs, so I stuffed them all into one and added a 'random'
+operator too. case statements, woohoo!
