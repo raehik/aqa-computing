@@ -8,6 +8,11 @@ I'm considering making it possible for other people to contribute (if anyone
 wants to for any reason, hah), so if you want to make a pull request, go ahead
 and we can sort something out (in the context of copyright, that is).
 
+**WHERE TO PUT THIS:**
+Though we are often required to provide evidence of our programs' operation,
+my current plans are *not* to include any in this repo -- since it's gonna be
+pictures and binary and stuff.
+
 
 Links
 -----
