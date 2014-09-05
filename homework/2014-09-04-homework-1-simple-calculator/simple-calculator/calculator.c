@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include <stdlib.h>
 #include <time.h>
 
@@ -7,7 +8,7 @@ int main() {
     float result_float;
     int prompt_choice;
 
-    int num_options = 5;
+    int num_options = 6;
 
     // make sure we choose a different random seed
     srand(time(NULL));
@@ -23,7 +24,8 @@ int main() {
     printf("    2) subtract\n");
     printf("    3) multiply\n");
     printf("    4) divide\n");
-    printf("    5) Pick for me!\n");
+    printf("    5) power of\n");
+    printf("    6) Pick for me!\n");
     printf("\n");
     printf("Number of your desired operator: ");
 
@@ -33,7 +35,7 @@ int main() {
     printf("\n");
     
     // this is unneat, but I only got 30 mins lol
-    if (prompt_choice == 5) {
+    if (prompt_choice == num_options) {
         prompt_choice = (rand() % (num_options - 1)) + 1;
         printf("Using option %d!\n", prompt_choice);
     }
@@ -58,6 +60,9 @@ int main() {
         case 4:
             // typecasting because C is duuuuumb
             result_float = (float)num1 / (float)num2;
+            break;
+        case 5:
+            result = (int)pow((float)num1, (float)num2);
             break;
     }
 

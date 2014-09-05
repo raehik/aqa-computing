@@ -12,7 +12,9 @@ CFLAGS=-Wall
 #	-lncurses
 #		Links to the ncurses library. It has a C/C++ interface, so
 #		it should actually be totally fine using ncurses with C++.
-LFLAGS=
+#	-lm
+#		Links to math.h library (or something).
+LFLAGS=-lm
 
 # The final executable to produce.
 #	We're not making a library here or anything.
