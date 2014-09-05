@@ -16,11 +16,24 @@ void introduceOperators() {
     printf("Number of your desired operator: ");
 }
 
+void flush() {
+    // flush input
+    while (getchar() != '\n');
+}
+
+int getNum() {
+    int num;
+    scanf("%d", &num);
+    flush();
+    return num;
+}
+
+
 int main() {
-    int num1, num2, result;
+    signed int num1, num2, result;
     float result_float;
     int choice_in_range = 0;
-    int prompt_choice;
+    signed int prompt_choice;
 
     int num_options = 6;
 
@@ -37,15 +50,20 @@ int main() {
         // print help every loop
         introduceOperators();
 
-        // reading for int only to make random easier (no casting)
-        scanf("%d", &prompt_choice);
+        // getchar actually returns an int (so we can deal with EOF)
+        prompt_choice = getchar();
+        // ... so we'll convert it to the actual number rather than the ASCII
+        // code of the number it represents
+        prompt_choice = prompt_choice - '0';
+
+        flush();
 
         // gotta do a special check for 0 lol
-        if (prompt_choice != 0 && prompt_choice <= num_options) {
+        if (prompt_choice > 0 && prompt_choice <= num_options) {
             choice_in_range = 1;
         } else {
             printf("\n");
-            printf("ERROR: choice not in range\n");
+            printf("ERROR: choice not in range: %d\n", prompt_choice);
             printf("\n");
             // necessary?
             choice_in_range = 0;
@@ -53,19 +71,23 @@ int main() {
     } while (choice_in_range != 1);
 
     printf("\n");
+    printf("Operator %d chosen.", prompt_choice);
+    printf("\n");
+    printf("\n");
     
     // this is unneat, but I only got 30 mins lol
     if (prompt_choice == num_options) {
         prompt_choice = (rand() % (num_options - 1)) + 1;
         printf("Using option %d!\n", prompt_choice);
+        printf("\n");
     }
 
     // prompt for numbers
     printf("Integer 1: ");
-    scanf("%d", &num1);
+    num1 = getNum();
 
     printf("Integer 2: ");
-    scanf("%d", &num2);
+    num2 = getNum();
 
     switch (prompt_choice) {
         case 1:
