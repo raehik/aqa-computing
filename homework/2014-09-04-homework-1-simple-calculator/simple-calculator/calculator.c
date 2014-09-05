@@ -3,9 +3,23 @@
 #include <stdlib.h>
 #include <time.h>
 
+void introduceOperators() {
+    printf("Operators available:\n");
+    printf("\n");
+    printf("    1) add\n");
+    printf("    2) subtract\n");
+    printf("    3) multiply\n");
+    printf("    4) divide\n");
+    printf("    5) power of\n");
+    printf("    6) Pick for me!\n");
+    printf("\n");
+    printf("Number of your desired operator: ");
+}
+
 int main() {
     int num1, num2, result;
     float result_float;
+    int choice_in_range = 0;
     int prompt_choice;
 
     int num_options = 6;
@@ -18,19 +32,25 @@ int main() {
     printf("         Welcome to Calculator!\n");
     printf("*************************************\n");
     printf("\n");
-    printf("Operators available:\n");
-    printf("\n");
-    printf("    1) add\n");
-    printf("    2) subtract\n");
-    printf("    3) multiply\n");
-    printf("    4) divide\n");
-    printf("    5) power of\n");
-    printf("    6) Pick for me!\n");
-    printf("\n");
-    printf("Number of your desired operator: ");
 
-    // reading for int only to make random easier (no casting)
-    scanf("%d", &prompt_choice);
+    do {
+        // print help every loop
+        introduceOperators();
+
+        // reading for int only to make random easier (no casting)
+        scanf("%d", &prompt_choice);
+
+        // gotta do a special check for 0 lol
+        if (prompt_choice != 0 && prompt_choice <= num_options) {
+            choice_in_range = 1;
+        } else {
+            printf("\n");
+            printf("ERROR: choice not in range\n");
+            printf("\n");
+            // necessary?
+            choice_in_range = 0;
+        }
+    } while (choice_in_range != 1);
 
     printf("\n");
     
@@ -63,6 +83,9 @@ int main() {
             break;
         case 5:
             result = (int)pow((float)num1, (float)num2);
+            break;
+        default:
+            printf("ERROR: ");
             break;
     }
 
