@@ -1,0 +1,1 @@
+- current breaks entirely if a character is input :(((
