@@ -1,9 +1,8 @@
-04/09/14 https://www.edmodo.com/post/292605355
+04/09/14
+https://www.edmodo.com/post/292605355
 
-Summary
--------
 
-***Max:*** *30 mins*
+***Length:*** *30 mins*
 
 Write 4 separate programs:
 
