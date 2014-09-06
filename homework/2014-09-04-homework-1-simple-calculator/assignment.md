@@ -2,8 +2,6 @@
 https://www.edmodo.com/post/292605355
 
 
-***Length:*** *30 mins*
-
 Write 4 separate programs:
 
     1. add 2 input numbers & display
