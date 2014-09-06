@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Generate a report for editing and submitting on Edmodo.
+# Generate an assignment submission for editing and submitting on Edmodo.
 #
 
 # GitHub user whom the repo belongs to
@@ -9,29 +9,36 @@ github_user="raehik"
 # sed bit removes trailing whitespace (gcc -v has a space on the end)
 version_info="$(gcc -v 2>&1 | tail -n1 | sed 's/ *$//')"
 
-# report/write-up file to throw into the assignment report also (but a report
-# might include other things, plus needs a link to the folder on GitHub etc.,
-# so I don't just submit $report_file
-report_file="report.md"
+# inserted into the initial (1st) submission
+readme_file="README.md"
 
 # file to write to
-assignment_file="assignment-report.md"
+submission_file="submission.md"
 
 usage() {
     cat <<EOF
-Usage: ${0##*/}
+Usage: ${0##*/} [options]
 Generates a template report for the current homework.
 
   Options:
-    -c              commit hash to use (otherwise, last commit)
+    -s <hash>       start commit to use (otherwise HEAD == last commit)
+    -e <hash>       end commit to use (otherwise -1 == only start)
+    -i              initial commit: insert README.md as well
     -h              display this help message
 EOF
 }
 
-while getopts "c:h" opt; do
+while getopts "s:e:ih" opt; do
     case $opt in
-        c) # choose commit
-            commit_hash="$OPTARG"
+        s) # start commit
+            start_hash="$OPTARG"
+            ;;
+        e) # end commit
+            # require carets -- not *actually* sure why lol
+            end_hash="^${OPTARG}^"
+            ;;
+        i) # insert README.md
+            initial_submission="true"
             ;;
         h) # display usage message
             usage
@@ -42,18 +49,25 @@ done
 
 shift $(($OPTIND-1))
 
-if [ ! "$commit_hash" ]; then
-    echo "no commit provided -- using HEAD"
-    commit_hash="HEAD"
+if [ ! "$start_hash" ]; then
+    echo "no start commit provided -- using HEAD"
+    start_hash="HEAD"
+fi
+
+if [ ! "$end_hash" ]; then
+    echo "no end commit provided -- using -1"
+    end_hash="-1"
 fi
 
 # get a ton of info
 folder_name="$(basename "$(pwd)")"
 git_root="$(basename "$(git rev-parse --show-toplevel)")"
-git_branch="$(git rev-parse --abbrev-ref $commit_hash)"
-last_hash_short="$(git rev-parse --short $commit_hash)"
-last_hash_full="$(git rev-parse $commit_hash)"
-last_message="$(git log $commit_hash -1 --pretty=%s)"
+# um. this doesn't work unless it's HEAD
+git_branch="$(git rev-parse --abbrev-ref HEAD)"
+last_hash_short="$(git rev-parse --short $start_hash)"
+last_hash_full="$(git rev-parse $start_hash)"
+last_message="$(git log $start_hash -1 --pretty=%s)"
+git_short_messages="$(git log $start_hash $end_hash --pretty="%h: %s")"
 
 # should check that all work, but this'll do for now (dunno what errors you get
 # if you provide an incorrect hash)
@@ -62,16 +76,26 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-# put $report_file's contents into a variable! :O
-report_text="$(< $report_file)"
+if [ "$initial_submission" ]; then
+    # put $report_file's contents into a variable! :O
+    # it looks silly because I want more newlines
+    readme_text="
+$(< $readme_file)
+
+"
+else
+    readme_text=""
+fi
 
 # finally, generate the base report and put it in $assignment_file
 echo "***folder:*** https://github.com/$github_user/$git_root/tree/$git_branch/homework/$folder_name
-***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full *(\"$last_message\")*
+***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full
+
+$readme_text
+----------------------
+$git_short_messages
+----------------------
 
 
-$report_text
-
-
-[compiled with $version_info]" > "$assignment_file"
-vim "$assignment_file"
+[compiled with $version_info]" > "$submission_file"
+vim "$submission_file"
