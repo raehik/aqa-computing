@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# y
+# Run gifscript in a more preferred environment (& with right geometry).
 #
 
 i3-msg 'workspace 10'
