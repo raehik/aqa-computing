@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# x
+#
+
+tmp_dir="/tmp/gifscript-gifs"
+cur_dir="$(pwd)"
+
+mkdir "$tmp_dir"
+cd "$tmp_dir"
+ttygif "$cur_dir/$1"
+concat "$cur_dir/${1}.gif"
+cd
+rmdir "$tmp_dir"
