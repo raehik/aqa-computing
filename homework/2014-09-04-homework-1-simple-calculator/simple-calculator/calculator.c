@@ -34,6 +34,7 @@ int main() {
     float result_float;
     int choice_in_range = 0;
     signed int prompt_choice;
+    char operator;
 
     int num_options = 6;
 
@@ -92,31 +93,37 @@ int main() {
     switch (prompt_choice) {
         case 1:
             result = num1 + num2;
+            operator = '+';
             break;
         case 2:
             result = num1 - num2;
+            operator = '-';
             break;
         case 3:
             result = num1 * num2;
+            operator = '*';
             break;
         case 4:
             // typecasting because C is duuuuumb
             result_float = (float)num1 / (float)num2;
+            operator = '/';
             break;
         case 5:
             result = (int)pow((float)num1, (float)num2);
+            operator = '^';
             break;
         default:
-            printf("ERROR: ");
+            printf("ERROR: choice wasn't in range");
+            exit(1);
             break;
     }
 
     if (prompt_choice == 4) {
         // if we divided, we actually have to *specify* that we're talking
         // floats -- fuckin C man ._.
-        printf("The result may or may not be %f! YMMV, no warranty. Also, you divided, and C is fucking *terrible* at that shit.\n", result_float);
+        printf("%f %c %f = %f!\n", (float)num1, operator, (float)num2, result_float);
     } else {
-        printf("The result may or may not be %d! YMMV, no warranty.\n", result);
+        printf("%d %c %d = %d!\n", num1, operator, num2, result);
     }
         
     printf("\n");
