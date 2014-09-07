@@ -53,35 +53,34 @@ int main() {
 
         // getchar actually returns an int (so we can deal with EOF)
         prompt_choice = getchar();
-        // ... so we'll convert it to the actual number rather than the ASCII
-        // code of the number it represents
-        prompt_choice = prompt_choice - '0';
 
+        // forget about all other chars on that line
         flush();
 
-        // gotta do a special check for 0 lol
+        // convert it to an actual number rather than the ASCII code of the
+        // number it represents
+        prompt_choice = prompt_choice - '0';
+
         if (prompt_choice > 0 && prompt_choice <= num_options) {
             choice_in_range = 1;
         } else {
             printf("\n");
             printf("ERROR: choice not in range: %d\n", prompt_choice);
             printf("\n");
-            // necessary?
-            choice_in_range = 0;
         }
     } while (choice_in_range != 1);
 
     printf("\n");
-    printf("Operator %d chosen.", prompt_choice);
-    printf("\n");
-    printf("\n");
+    printf("Operator %d chosen.\n", prompt_choice);
     
     // this is unneat, but I only got 30 mins lol
+    // if random chosen (random is always the final choice, so == num_options)
     if (prompt_choice == num_options) {
         prompt_choice = (rand() % (num_options - 1)) + 1;
-        printf("Using option %d!\n", prompt_choice);
-        printf("\n");
+        printf("The die rolls... and we're using option %d!\n", prompt_choice);
     }
+
+    printf("\n");
 
     // prompt for numbers
     printf("Integer 1: ");
@@ -89,6 +88,8 @@ int main() {
 
     printf("Integer 2: ");
     num2 = getNum();
+    
+    printf("\n");
 
     switch (prompt_choice) {
         case 1:
@@ -113,14 +114,14 @@ int main() {
             operator = '^';
             break;
         default:
-            printf("ERROR: choice wasn't in range");
+            printf("ERROR: nothing to do for choice: %d", prompt_choice);
             exit(1);
             break;
     }
 
+    // if we divided, we have to specify that we're talking floats T___T
+    // fuckin' C, man
     if (prompt_choice == 4) {
-        // if we divided, we actually have to *specify* that we're talking
-        // floats -- fuckin C man ._.
         printf("%f %c %f = %f!\n", (float)num1, operator, (float)num2, result_float);
     } else {
         printf("%d %c %d = %d!\n", num1, operator, num2, result);
