@@ -7,6 +7,7 @@ d4667a9: refactor comments lol
 a96980e: print constructed equation (w/ '!' :D); exit in default case
 ----------------------
 
+
 removed expletives from the program output too :>
 removed some old comments, more interesting output (constructs an equation).
 
