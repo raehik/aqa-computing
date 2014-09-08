@@ -122,7 +122,8 @@ int main() {
     // if we divided, we have to specify that we're talking floats T___T
     // fuckin' C, man
     if (prompt_choice == 4) {
-        printf("%f %c %f = %f!\n", (float)num1, operator, (float)num2, result_float);
+        printf("%f %c %f = %f!\n",
+                (float)num1, operator, (float)num2, result_float);
     } else {
         printf("%d %c %d = %d!\n", num1, operator, num2, result);
     }
