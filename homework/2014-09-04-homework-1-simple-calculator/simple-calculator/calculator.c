@@ -21,9 +21,16 @@ void flush() {
     while (getchar() != '\n');
 }
 
-int getNum() {
+int getInt() {
     int num;
     scanf("%d", &num);
+    flush();
+    return num;
+}
+
+double getDouble() {
+    double num;
+    scanf("%lf", &num);
     flush();
     return num;
 }
@@ -31,7 +38,7 @@ int getNum() {
 
 int main() {
     signed int num1, num2, result;
-    float result_float;
+    double result_double, cert1, cert2, result_cert;
     int choice_in_range = 0;
     signed int prompt_choice;
     char operator;
@@ -84,33 +91,43 @@ int main() {
 
     // prompt for numbers
     printf("Integer 1: ");
-    num1 = getNum();
+    num1 = getInt();
+
+    printf("Uncertainty 1 (absolute): +- ");
+    cert1 = getDouble();
 
     printf("Integer 2: ");
-    num2 = getNum();
+    num2 = getInt();
+
+    printf("Uncertainty 2 (absolute): +- ");
+    cert2 = getDouble();
     
     printf("\n");
 
     switch (prompt_choice) {
         case 1:
             result = num1 + num2;
+            result_cert = cert1 + cert2;
             operator = '+';
             break;
         case 2:
             result = num1 - num2;
+            result_cert = cert1 + cert2;
             operator = '-';
             break;
         case 3:
             result = num1 * num2;
+            result_cert = (((double)num1 / cert1) + ((double)num2 / cert2)) * (double)result;
             operator = '*';
             break;
         case 4:
             // typecasting because C is duuuuumb
-            result_float = (float)num1 / (float)num2;
+            result_double = (double)num1 / (double)num2;
+            result_cert = (((double)num1 / cert1) + ((double)num2 / cert2)) * (double)result;
             operator = '/';
             break;
         case 5:
-            result = (int)pow((float)num1, (float)num2);
+            result = (int)pow((double)num1, (double)num2);
             operator = '^';
             break;
         default:
@@ -119,15 +136,17 @@ int main() {
             break;
     }
 
-    // if we divided, we have to specify that we're talking floats T___T
+    // if we divided, we have to specify that we're talking doubles T___T
     // fuckin' C, man
     if (prompt_choice == 4) {
-        printf("%f %c %f = %f!\n",
-                (float)num1, operator, (float)num2, result_float);
+        printf("(%d +- %f) %c (%d +- %f) = %f +- %f!\n",
+                num1, cert1, operator, num2, cert2, result_double,
+                result_cert);
     } else {
-        printf("%d %c %d = %d!\n", num1, operator, num2, result);
+        printf("(%d +- %f) %c (%d +- %f) = %d +- %f!\n",
+                num1, cert1, operator, num2, cert2, result, result_cert);
     }
-        
+
     printf("\n");
     return 0;
 }
