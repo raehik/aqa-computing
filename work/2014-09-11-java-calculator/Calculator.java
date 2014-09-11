@@ -23,6 +23,15 @@ public class Calculator {
 		parsedNum = Integer.parseInt(numString);
 		return parsedNum;
 	}
+
+	public void printOperators() {
+		System.out.println("Operators:");
+		System.out.println("    +    - add");
+		System.out.println("    -    - subtract");
+		System.out.println("    *    - multiply");
+		System.out.println("    /    - divide");
+		System.out.println("    ^    - power of");
+	}
 	
 	public int add(int num1, int num2) {
 		return num1 + num2;
