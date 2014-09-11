@@ -1,4 +1,4 @@
-***folder:*** https://github.com/raehik/hangman/tree/master/homework/hangman
+***folder:*** https://github.com/raehik/hangman/tree/master/hangman
 ***commit:*** https://github.com/raehik/hangman/commit/2b8cae2f67f73244d38aeb14afe8863a4d66770f
 
 
