@@ -34,8 +34,7 @@ while getopts "s:e:ih" opt; do
             start_hash="$OPTARG"
             ;;
         e) # end commit
-            # require carets -- not *actually* sure why lol
-            end_hash="^${OPTARG}^"
+            end_hash="${OPTARG}"
             ;;
         i) # insert README.md
             initial_submission="true"
