@@ -15,10 +15,15 @@ readme_file="README.md"
 # file to write to
 submission_file="submission.md"
 
+# subdirectory for work (e.g. work/ in aqa-computing)
+# leave empty if you don't have a subdirectory for work (i.e. root directory
+# has da codez)
+subdir=""
+
 usage() {
     cat <<EOF
 Usage: ${0##*/} [options]
-Generates a template report for the current homework.
+Generates a template report for the current Git repo.
 
   Options:
     -s <hash>       start commit to use (otherwise HEAD == last commit)
@@ -87,7 +92,7 @@ else
 fi
 
 # finally, generate the base report and put it in $assignment_file
-echo "***folder:*** https://github.com/$github_user/$git_root/tree/$git_branch/homework/$folder_name
+echo "***folder:*** https://github.com/$github_user/$git_root/tree/$git_branch/$subdir$folder_name
 ***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full
 
 $readme_text
