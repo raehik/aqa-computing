@@ -6,9 +6,6 @@
 # GitHub user whom the repo belongs to
 github_user="raehik"
 
-# sed bit removes trailing whitespace (gcc -v has a space on the end)
-version_info="$(gcc -v 2>&1 | tail -n1 | sed 's/ *$//')"
-
 # inserted into the initial (1st) submission
 readme_file="README.md"
 
@@ -18,7 +15,7 @@ submission_file="submission.md"
 # subdirectory for work (e.g. work/ in aqa-computing)
 # leave empty if you don't have a subdirectory for work (i.e. root directory
 # has da codez)
-subdir=""
+subdir="work"
 
 usage() {
     cat <<EOF
@@ -29,20 +26,29 @@ Generates a template report for the current Git repo.
     -s <hash>       start commit to use (otherwise HEAD == last commit)
     -e <hash>       end commit to use (otherwise -1 == only start)
     -i              initial commit: insert README.md as well
+    -c              C mode: append GCC version
+    -o              project is in aqa-computing main repo: fix GitHub link
     -h              display this help message
 EOF
 }
 
-while getopts "s:e:ih" opt; do
+while getopts "s:e:icoh" opt; do
     case $opt in
         s) # start commit
             start_hash="$OPTARG"
             ;;
         e) # end commit
-            end_hash="${OPTARG}"
+            end_hash="$OPTARG"
             ;;
         i) # insert README.md
             initial_submission="true"
+            ;;
+        c) # append GCC version
+            # sed bit removes trailing whitespace (gcc -v has a space on the end)
+            version_info="$(gcc -v 2>&1 | tail -n1 | sed 's/ *$//')"
+            ;;
+        o) # aqa-computing mode
+            aqa_computing="true"
             ;;
         h) # display usage message
             usage
@@ -80,6 +86,12 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+if [ "$aqa_computing" ]; then
+    github_link="https://github.com/$github_user/$git_root/tree/$git_branch/$subdir/$folder_name"
+else
+    github_link="https://github.com/$github_user/$git_branch"
+fi
+
 if [ "$initial_submission" ]; then
     # put $report_file's contents into a variable! :O
     # it looks silly because I want more newlines
@@ -92,7 +104,7 @@ else
 fi
 
 # finally, generate the base report and put it in $assignment_file
-echo "***folder:*** https://github.com/$github_user/$git_root/tree/$git_branch/$subdir$folder_name
+echo "***folder:*** $github_link
 ***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full
 
 $readme_text
