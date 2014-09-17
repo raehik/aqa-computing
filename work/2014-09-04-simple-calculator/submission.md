@@ -1,4 +1,4 @@
-***folder:*** https://github.com/raehik/aqa-computing/tree/master/homework/2014-09-04-homework-1-simple-calculator
+***folder:*** https://github.com/raehik/aqa-computing/tree/master/work/2014-09-04-simple-calculator
 ***commit:*** https://github.com/raehik/aqa-computing/commit/d4667a9c80cf2ee7c5048f45042f8c2bfc2e289e
 
 
