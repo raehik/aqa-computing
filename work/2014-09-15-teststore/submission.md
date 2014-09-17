@@ -1,4 +1,4 @@
-***folder:*** https://github.com/raehik/testStore/tree/master/testStore
+***folder:*** https://github.com/raehik/testStore/tree/master
 ***commit:*** https://github.com/raehik/testStore/commit/a0f886713542221337a4079c3956377b74881114
 
 
