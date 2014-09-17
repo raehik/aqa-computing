@@ -4,5 +4,5 @@
 #
 
 i3-msg 'workspace 10'
-urxvt -e bash -c "i3-msg 'floating toggle' && bash gifscript $1"
+urxvt +tr -e bash -c "i3-msg 'floating toggle' && bash gifscript $1"
 i3-msg 'workspace back_and_forth'
