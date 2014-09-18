@@ -6,13 +6,13 @@
 # GitHub user whom the repo belongs to
 github_user="raehik"
 
-# inserted into the initial (1st) submission
+# file inserted into the initial submission (specified with -i)
 readme_file="README.md"
 
 # file to write to
 submission_file="submission.md"
 
-# subdirectory for work (e.g. work/ in aqa-computing)
+# subdirectory for work (e.g. `work` in aqa-computing)
 # leave empty if you don't have a subdirectory for work (i.e. root directory
 # has da codez)
 subdir="work"
@@ -38,14 +38,17 @@ while getopts "s:e:icoh" opt; do
             start_hash="$OPTARG"
             ;;
         e) # end commit
-            end_hash="$OPTARG"
+            end_hash="^${OPTARG}^"
             ;;
         i) # insert README.md
             initial_submission="true"
             ;;
         c) # append GCC version
             # sed bit removes trailing whitespace (gcc -v has a space on the end)
-            version_info="$(gcc -v 2>&1 | tail -n1 | sed 's/ *$//')"
+            version_info="
+
+
+[compiled with $(gcc -v 2>&1 | tail -n1 | sed 's/ *$//')]"
             ;;
         o) # aqa-computing mode
             aqa_computing="true"
@@ -89,13 +92,14 @@ fi
 if [ "$aqa_computing" ]; then
     github_link="https://github.com/$github_user/$git_root/tree/$git_branch/$subdir/$folder_name"
 else
-    github_link="https://github.com/$github_user/$git_branch"
+    github_link="https://github.com/$github_user/$folder_name"
 fi
 
 if [ "$initial_submission" ]; then
     # put $report_file's contents into a variable! :O
     # it looks silly because I want more newlines
     readme_text="
+
 $(< $readme_file)
 
 "
@@ -106,12 +110,8 @@ fi
 # finally, generate the base report and put it in $assignment_file
 echo "***folder:*** $github_link
 ***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full
-
 $readme_text
 ----------------------
 $git_short_messages
-----------------------
-
-
-[compiled with $version_info]" > "$submission_file"
+----------------------$version_info" > "$submission_file"
 vim "$submission_file"
