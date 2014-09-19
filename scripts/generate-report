@@ -27,12 +27,13 @@ Generates a template report for the current Git repo.
     -e <hash>       end commit to use (otherwise -1 == only start)
     -i              initial commit: insert README.md as well
     -c              C mode: append GCC version
-    -o              project is in aqa-computing main repo: fix GitHub link
+    -o              project is in aqa-computing main repo: special GitHub link
+    -t              team project: put author name after commit hash
     -h              display this help message
 EOF
 }
 
-while getopts "s:e:icoh" opt; do
+while getopts "s:e:icoth" opt; do
     case $opt in
         s) # start commit
             start_hash="$OPTARG"
@@ -52,6 +53,9 @@ while getopts "s:e:icoh" opt; do
             ;;
         o) # aqa-computing mode
             aqa_computing="true"
+            ;;
+        t) # team project, include author name
+            team_project="true"
             ;;
         h) # display usage message
             usage
@@ -80,7 +84,12 @@ git_branch="$(git rev-parse --abbrev-ref HEAD)"
 last_hash_short="$(git rev-parse --short $start_hash)"
 last_hash_full="$(git rev-parse $start_hash)"
 last_message="$(git log $start_hash -1 --pretty=%s)"
-git_short_messages="$(git log $start_hash $end_hash --pretty="%h: %s")"
+
+if [ $team_project ]; then
+    git_short_messages="$(git log $start_hash $end_hash --pretty="%h (%an): %s")"
+else
+    git_short_messages="$(git log $start_hash $end_hash --pretty="%h: %s")"
+fi
 
 # should check that all work, but this'll do for now (dunno what errors you get
 # if you provide an incorrect hash)
@@ -89,13 +98,13 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ "$aqa_computing" ]; then
+if [ $aqa_computing ]; then
     github_link="https://github.com/$github_user/$git_root/tree/$git_branch/$subdir/$folder_name"
 else
     github_link="https://github.com/$github_user/$folder_name"
 fi
 
-if [ "$initial_submission" ]; then
+if [ $initial_submission ]; then
     # put $report_file's contents into a variable! :O
     # it looks silly because I want more newlines
     readme_text="$(< $readme_file)"
