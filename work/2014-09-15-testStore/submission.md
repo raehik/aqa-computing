@@ -1,12 +1,13 @@
-***folder:*** https://github.com/raehik/master
-***commit:*** https://github.com/raehik/testStore/commit/4d4dd0edfb3542e3644a414aa886d44eb53e12b1
-
+***folder:*** https://github.com/raehik/testStore
+***commit:*** https://github.com/raehik/testStore/commit/1e6fa31038fc7d6cdbf0b81ff9d641d3fe3db664
 
 ----------------------
-4d4dd0e: add spaces between "D/M/Y set:" and input
-e163fe5: Merge branch 'master' of https://github.com/raehik/testStore
-0c83e13: Refactor TestInterfaceCli; add newTest(); more
-81890f4: Prevent score trimming with short test names
-6290af9: Correct header lengths for new colours
-33e5761: move notes.md from testStore->main CS repo
+1e6fa31: Refactor inputting & var. names; add removeTest
 ----------------------
+
+Amartya pointed out that we did 0 input checking for test dates, and Java
+*immediately* crashed with an InputMismatchException. I created a private
+method for 'forcing' a correct input (prompting over and over again).
+
+The same commit also adds some support for extra feature 3: editing results.
+Trivial changes, will come soon.
