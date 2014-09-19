@@ -98,11 +98,7 @@ fi
 if [ "$initial_submission" ]; then
     # put $report_file's contents into a variable! :O
     # it looks silly because I want more newlines
-    readme_text="
-
-$(< $readme_file)
-
-"
+    readme_text="$(< $readme_file)"
 else
     readme_text=""
 fi
@@ -113,5 +109,7 @@ echo "***folder:*** $github_link
 $readme_text
 ----------------------
 $git_short_messages
-----------------------$version_info" > "$submission_file"
+----------------------
+
+$version_info" > "$submission_file"
 vim "$submission_file"
