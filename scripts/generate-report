@@ -39,7 +39,7 @@ while getopts "s:e:ivoth" opt; do
             start_hash="$OPTARG"
             ;;
         e) # end commit
-            end_hash="${OPTARG}"
+            end_hash="^${OPTARG}^"
             ;;
         i) # insert README.md
             initial_submission="true"
