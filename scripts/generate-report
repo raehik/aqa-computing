@@ -29,17 +29,18 @@ Generates a template report for the current Git repo.
     -v              append compiler version (GCC)
     -o              project is in aqa-computing main repo: special GitHub link
     -t              team project: put author name after commit hash
+    -f              fix end commit (??? why does it sometimes not work?)
     -h              display this help message
 EOF
 }
 
-while getopts "s:e:ivoth" opt; do
+while getopts "s:e:ivotfh" opt; do
     case $opt in
         s) # start commit
             start_hash="$OPTARG"
             ;;
         e) # end commit
-            end_hash="^${OPTARG}^"
+            end_hash="${OPTARG}"
             ;;
         i) # insert README.md
             initial_submission="true"
@@ -56,6 +57,11 @@ while getopts "s:e:ivoth" opt; do
             ;;
         t) # team project, include author name
             team_project="true"
+            ;;
+        f) # fix end commit, maybe?
+            if [ -n "$end_hash" ]; then
+                end_hash="^${end_hash}^"
+            fi
             ;;
         h) # display usage message
             usage
