@@ -130,3 +130,5 @@ $readme_text
 $git_short_messages
 ----------------------$version_info" > "$submission_file"
 vim "$submission_file"
+xsel -i < "$submission_file"
+echo "[copied to clipboard, middle click to paste]"
