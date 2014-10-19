@@ -28,3 +28,11 @@ e.g. X + Y = Q
 means X OR Y = Q
 
 so Q will be 1 if either X or Y are 1.
+
+AND: `.`
+
+e.g. X . Y = Q
+
+means X AND Y = Q
+
+so Q will be 1 if both X and Y are 1.
