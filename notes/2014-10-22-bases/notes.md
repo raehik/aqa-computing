@@ -28,7 +28,7 @@ Decimal -> Base n
 
 
 
-Binary -> Hex:
+Binary -> Hex
 
     10001011.
 
@@ -39,3 +39,13 @@ Binary -> Hex:
     (split up into nibbles :3)
 
     = 0x8B
+
+
+
+Binary -> Decimal
+
+    1       1       1       0       1       0       0       1
+    2^7     2^6     2^5     0^4     2^3     0^2     0^1     2^0
+    128  +  64   +  32   +  0   +   8   +   0   +   0   +   1
+
+    = 233
