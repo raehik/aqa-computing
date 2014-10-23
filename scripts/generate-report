@@ -12,6 +12,9 @@ readme_file="README.md"
 # file to write to
 submission_file="submission.md"
 
+# string to indent each commit line by
+commit_indent="    "
+
 usage() {
     cat <<EOF
 Usage: ${0##*/} [options]
@@ -86,9 +89,9 @@ git_branch="$(git rev-parse --abbrev-ref HEAD)"
 last_hash_full="$(git rev-parse $start_hash)"
 
 if [ $team_project ]; then
-    git_short_messages="$(git log $start_hash $end_hash --pretty="%h (%an): %s")"
+    git_short_messages="$(git log $start_hash $end_hash --pretty="${commit_indent}%h (%an): %s")"
 else
-    git_short_messages="$(git log $start_hash $end_hash --pretty="%h: %s")"
+    git_short_messages="$(git log $start_hash $end_hash --pretty="${commit_indent}%h: %s")"
 fi
 
 # should check that all work, but this'll do for now (dunno what errors you get
@@ -123,9 +126,7 @@ fi
 echo "***folder:*** $github_link
 ***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full
 $readme_text
-----------------------
-$git_short_messages
-----------------------$version_info" > "$submission_file"
+${git_short_messages}${version_info}" > "$submission_file"
 $EDITOR "$submission_file"
 
 xsel -i < "$submission_file"
