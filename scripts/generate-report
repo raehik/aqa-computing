@@ -83,9 +83,7 @@ git_dirname="$(git rev-parse --show-toplevel)"
 git_root="$(basename "$git_dirname")"
 # um. this doesn't work unless it's HEAD
 git_branch="$(git rev-parse --abbrev-ref HEAD)"
-last_hash_short="$(git rev-parse --short $start_hash)"
 last_hash_full="$(git rev-parse $start_hash)"
-last_message="$(git log $start_hash -1 --pretty=%s)"
 
 if [ $team_project ]; then
     git_short_messages="$(git log $start_hash $end_hash --pretty="%h (%an): %s")"
