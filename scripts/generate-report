@@ -123,8 +123,8 @@ else
 fi
 
 # finally, generate the base report and put it in $assignment_file
-echo "***folder:*** $github_link
-***commit:*** https://github.com/$github_user/$git_root/commit/$last_hash_full
+echo "**folder:** $github_link
+**commit:** https://github.com/$github_user/$git_root/commit/$last_hash_full
 $readme_text
 ${git_short_messages}${version_info}" > "$submission_file"
 $EDITOR "$submission_file"
