@@ -12,11 +12,6 @@ readme_file="README.md"
 # file to write to
 submission_file="submission.md"
 
-# subdirectory for work (e.g. `work` in aqa-computing)
-# leave empty if you don't have a subdirectory for work (i.e. root directory
-# has da codez)
-subdir="work"
-
 usage() {
     cat <<EOF
 Usage: ${0##*/} [options]
@@ -84,7 +79,8 @@ fi
 
 # get a ton of info
 folder_name="$(basename "$(pwd)")"
-git_root="$(basename "$(git rev-parse --show-toplevel)")"
+git_dirname="$(git rev-parse --show-toplevel)"
+git_root="$(basename "$git_dirname")"
 # um. this doesn't work unless it's HEAD
 git_branch="$(git rev-parse --abbrev-ref HEAD)"
 last_hash_short="$(git rev-parse --short $start_hash)"
@@ -105,7 +101,10 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ $aqa_computing ]; then
-    github_link="https://github.com/$github_user/$git_root/tree/$git_branch/$subdir/$folder_name"
+    # git gets the real path, so we will too
+    real_pwd="$(pwd -P)"
+    git_relative_folder="${real_pwd#$git_dirname/}"
+    github_link="https://github.com/$github_user/$git_root/tree/$git_branch/$git_relative_folder"
 else
     github_link="https://github.com/$github_user/$folder_name"
 fi
@@ -130,5 +129,6 @@ $readme_text
 $git_short_messages
 ----------------------$version_info" > "$submission_file"
 $EDITOR "$submission_file"
+
 xsel -i < "$submission_file"
 echo "[copied to clipboard, middle click to paste]"
