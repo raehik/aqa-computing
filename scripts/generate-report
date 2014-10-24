@@ -129,5 +129,7 @@ $readme_text
 ${git_short_messages}${version_info}" > "$submission_file"
 $EDITOR "$submission_file"
 
-xsel -i < "$submission_file"
+# use printf to remove trailing newline (becos Firefox is duuuumb)
+#xsel -i < "$submission_file"
+printf '%s' "$(< $submission_file)" | xsel -i
 echo "[copied to clipboard, middle click to paste]"
