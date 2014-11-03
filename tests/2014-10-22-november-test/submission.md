@@ -1,4 +1,4 @@
-**folder:** https://github.com/raehik/2014-10-22-november-test
+**folder:** https://github.com/raehik/aqa-computing/tree/master/tests/2014-10-22-november-test
 **commit:** https://github.com/raehik/aqa-computing/commit/d63b490c7159b4dd3e5dac3882ae2ff326cd9f33
 
     d63b490: tests: +answers for November assessment
