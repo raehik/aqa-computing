@@ -7,6 +7,9 @@
 Before tree: https://github.com/raehik/testStore/tree/4ac0646
 After tree: https://github.com/raehik/testStore/tree/1409533
 
+(The commit link shows a diff, might be easier to view rather than
+comparing files manually.)
+
 Main things were adding Javadoc & removing some useless overloaded
 functions. Very happy with this project, me and Charlie kept it clear &
 object-oriented, espec. focusing on encapsulation and separating
