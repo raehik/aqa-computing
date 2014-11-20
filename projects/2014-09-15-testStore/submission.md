@@ -8,6 +8,6 @@ Before tree: https://github.com/raehik/testStore/tree/4ac0646
 After tree: https://github.com/raehik/testStore/tree/1409533
 
 Main things were adding Javadoc & removing some useless overloaded
-functions. Very happy with this project, kept it clear &
-object-oriented, espec. focusing on encapsulation and separating my
+functions. Very happy with this project, me and Charlie kept it clear &
+object-oriented, espec. focusing on encapsulation and separating
 interfaces from the implementation.
