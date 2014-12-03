@@ -1,6 +1,7 @@
-**folder:** https://github.com/raehik/2014-12-03-bubbleSort
-**commit:** https://github.com/raehik/aqa-computing/commit/3f321c7e11e9f53d74b190870e2a754905a3c793
+**folder:** https://github.com/raehik/aqa-computing/tree/master/projects/2014-12-03-bubbleSort
+**commit:** https://github.com/raehik/aqa-computing/commit/1d52d8172a674cdb515d7c5b155e4b2f2aa8362a
 
+    1d52d81: projects/bubbleSort: +Edmodo submission
     3f321c7: bubbleSort: new project
 
 Measures execution time in nanoseconds. Efficiencies included are the
