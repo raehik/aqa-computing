@@ -1,5 +1,5 @@
 Logic gates
-===========
+-----------
 
 ![Common logic
 gates](http://i1-news.softpedia-static.com/images/news2/How-Logic-Gates-Work-3.gif)
