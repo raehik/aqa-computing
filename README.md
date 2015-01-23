@@ -27,11 +27,11 @@ directory.
 Links
 -----
 
-AQA's page for the course:
-[Computing (2510)](http://www.aqa.org.uk/subjects/ict-and-computer-science/a-level/computing-2510)
+AQA's page for the course: [Computing
+(2510)](http://www.aqa.org.uk/subjects/ict-and-computer-science/a-level/computing-2510)
 
-You should be able to find the specification on that page. Otherwise, here is a
-direct link (working 13/10/14):
+You should be able to find the specification on that page. Otherwise,
+here is a direct link (working 13/10/14):
 [AQA-2510-W-SP-14.PDF](http://filestore.aqa.org.uk/subjects/specifications/alevel/AQA-2510-W-SP-14.PDF)
 
 Past papers, markschemes and other materials: [Past papers and mark
