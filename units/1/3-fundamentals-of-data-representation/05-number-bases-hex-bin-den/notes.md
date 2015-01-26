@@ -1,6 +1,7 @@
-Decimal -> Base n
+Number bases: Denary, binary and hexadecimal
+--------------------------------------------
 
-    Binary:
+### Decimal -> Binary
 
     1532.
 
@@ -13,8 +14,7 @@ Decimal -> Base n
     = 10111111100
 
 
-
-    Hex:
+### Decimal -> Hex
 
     1532    252     12
     256     16      1
@@ -27,8 +27,7 @@ Decimal -> Base n
     = 0x5FC
 
 
-
-Binary -> Hex
+### Binary -> Hex
 
     10001011.
 
@@ -41,8 +40,7 @@ Binary -> Hex
     = 0x8B
 
 
-
-Binary -> Decimal
+### Binary -> Decimal
 
     1       1       1       0       1       0       0       1
     2^7     2^6     2^5     0^4     2^3     0^2     0^1     2^0

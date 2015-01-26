@@ -1,11 +1,12 @@
 Top down design
-===============
+---------------
 
 Top down design breaks down a problem into its smallest constituent pieces, so
 you can see what the problem entails, and what each problem in that problem
 entails, and so on.
 
 e.g.
+
                      _________
                     |         |
                     | Problem |
@@ -21,10 +22,9 @@ e.g.
 It is used in problem solving. (??)
 
 
-Examples
---------
+### Examples
 
-### Algorithm for drawing a house
+#### Algorithm for drawing a house
 
 1. initial outside shape
     - size
@@ -44,7 +44,7 @@ Examples
     - door colour
 
 
-### Noughts and crosses
+#### Noughts and crosses
 
 1. input
     - check if valid
