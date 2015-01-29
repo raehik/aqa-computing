@@ -19,6 +19,16 @@ and **odd parity**.
     even
   * **Odd parity:** the parity of all bits (inc. parity bit) is made odd
 
+There is also the question of where to place the bit in the code.
+[Wikipedia states](!Wikipedia "Parity bit") that it is *"added to the
+end of a string of binary code"*, which I agree makes most sense, but
+***note well: AQA expect you to make the parity bit the MSB*** (i.e. put
+it at the start of the code). This means normally (MSB first) it'll be
+the leftmost bit. If you need to add a parity bit to an LSB first code,
+then I'd put it at the right, where the MSB goes.
+
+tl;dr AQA dumb as shit
+
 
 ### Hamming code
 
