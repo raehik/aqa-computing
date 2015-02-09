@@ -5,8 +5,8 @@ or something.
 These are the HTML tags you **must** know for the exam.
 
     <html>, <head>, <title>, <meta>, <body>, <div>, <p>, <hr>, <h1>,
-    <h2>, ... <h6>, <ol>, <ul>, <li>, <span>, <strong>, <em>, <br>, <a>,
-    <img src="file.ext" alt="Alternate text to display if image is not
+    ..., <h6>, <ol>, <ul>, <li>, <span>, <strong>, <em>, <br>, <a>, <img
+    src="file.ext" alt="Alternate text to display if image is not
     available" height="42" width="42">
 
 According to AQA:
