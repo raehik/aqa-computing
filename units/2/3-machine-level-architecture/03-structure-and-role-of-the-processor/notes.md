@@ -21,7 +21,7 @@ ALU.
 Performs arithmetic (ADD, SUB, MUL) & logical (AND, OR, NOT) operations
 on the data it receives.
 
-Rememer that it's arithmetic **and** logic.
+Rembemer that it's arithmetic **and** logic.
 
 
 ### Registers
