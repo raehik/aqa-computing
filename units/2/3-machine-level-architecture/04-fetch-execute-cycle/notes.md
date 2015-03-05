@@ -26,3 +26,17 @@ Fetch-Execute cycle
 
 ![Fetch-execute
 cycle](http://upload.wikimedia.org/wikipedia/commons/5/52/Comp_fetch_execute_cycle.png)
+
+
+Register notation
+-----------------
+
+The following is adapted from the [AQA Computing
+Wikibook][wikibook-page].
+
+[wikibook-page]: http://en.wikibooks.org/wiki/A-level_Computing/AQA/Computer_Components,_The_Stored_Program_Concept_and_the_Internet/Machine_Level_Architecture/The_Fetch%E2%80%93Execute_cycle_and_the_role_of_registers_within_it
+
+  1. \\(MAR \gets [PC]\\)
+  2. \\(MBR \gets [Memory]\_{MAR\ address}\\) and, simultaneously, \\(PC \gets [PC]+1\\)
+  3. \\(CIR \gets [MBR]\\)
+  4. \\([CIR]\\) decoded then executed
