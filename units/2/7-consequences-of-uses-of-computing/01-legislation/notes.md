@@ -21,6 +21,14 @@ workplaces:
   * allow employees to take breaks
   * pay for eye treatment if necessary (lol)
 
+AQA also asked a nasty question about **office layout** before (May
+2012) (?). These are some things a company might have to consider when
+designing an office space:
+
+  * TODO
+  * TODO
+  * TODO
+
 
 ### Copyright, Designs and Patents Act
 
