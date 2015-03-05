@@ -1,0 +1,11 @@
+--- Comp1_Summer_2015_Python3Pub0.0.0.py	2015-03-05 12:01:38.906647318 +0000
++++ test.py	2015-03-05 12:08:23.913296487 +0000
+@@ -120,6 +120,8 @@
+   MoveIsLegal = True
+   if (FinishFile == StartFile) and (FinishRank == StartRank):
+     MoveIsLegal = False
++  elif not (1 <= FinishFile <= 8) or not (1 <= FinishRank <= 8):
++    MoveIsLegal = False
+   else:
+     PieceType = Board[StartRank][StartFile][1]
+     PieceColour = Board[StartRank][StartFile][0]
