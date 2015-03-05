@@ -1,3 +1,5 @@
+COMP1 is examined in a single 2h exam in May/June.
+
 1.1 Fundamentals of Problem Solving
 ===================================
 
