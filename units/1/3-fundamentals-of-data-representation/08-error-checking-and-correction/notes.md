@@ -33,3 +33,13 @@ tl;dr AQA dumb as shit
 ### Hamming code
 
 Can *detect* up to **two** errors and *correct* **one**.
+
+
+#### Method
+
+  1. Write out lots of columns and number them 1 -> X.
+  2. Label all the powers of 2, ***including 1***, as parity bits
+  3. Write the actual code in the gaps.
+  4. Work out the parities as follows:
+      1. lol
+      2. etc
