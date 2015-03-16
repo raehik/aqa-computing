@@ -1,6 +1,9 @@
 Fetch-Execute cycle
 -------------------
 
+*Note: see `/exams/comp2/common-questions.md` for a definitive guide on
+questions about the FET cycle.*
+
 1. Instruction time / I-time
   1. **Fetch:** Next instruction fetched from address currently in PC and
                 stored in IR. Finally, increment PC.
