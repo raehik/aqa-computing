@@ -10,3 +10,7 @@
   > patterns?
 
 Easier to humans to read, more compact when displayed
+
+  > Why are vectors better than bitmaps?
+
+Does not deteriorate when resized, usually smaller files
