@@ -8,9 +8,10 @@ How to solve a problem
 
 **Given(s):** initial state
 
-**Goal:** desired/target state
+**Goal:** desired/target state -- literally just the goal for goodness
+          sake
 
-**Ownership:** "who does what" (? from spec.)
+**Ownership:** who is responsible for solving the problem
 
 **Resources & constraints:** "tools, knowledge, skills, materials, rules,
                              regulations, guidelines, boundaries, timings"...
