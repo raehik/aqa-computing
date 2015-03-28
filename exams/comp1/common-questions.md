@@ -9,7 +9,7 @@
   > Why do we often use hexademical to display binary numbers/bit
   > patterns?
 
-Easier to humans to read, more compact when displayed
+Easier to **people** to read, more compact when displayed
 
   > Why are vectors better than bitmaps?
 
