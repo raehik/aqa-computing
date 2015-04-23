@@ -10,7 +10,11 @@ in these questions I'm showing you what AQA want you to write.
 Define the principles of operation of [object].
 -----------------------------------------------
 
-I have no idea how to answer these questions.
+I have no idea how to answer these questions. Some devices which have
+come up are:
+
+  * a camera (? what type? and which year?)
+  * a bar code reader *(AQA Jun14)* -- I did OK at that question, IMO
 
 
 Describe the fetch-execute cycle.
