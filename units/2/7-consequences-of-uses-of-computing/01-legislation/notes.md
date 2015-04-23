@@ -4,8 +4,8 @@ Legislation
 There are a few different laws and acts you need to know about for
 COMP2. Here are the parts you need to know.
 
-N.B.: [IANAL](!Wikipedia), so please do not use my notes as legal
-advice!
+N.B.: [IANAL](http://en.wikipedia.org/wiki/IANAL), so please do not use
+my notes as legal advice!
 
 
 ### Health and Safety Regulations
@@ -74,7 +74,8 @@ Copyright is a complicated topic, and one that doesn't need to be
 understand for this course. Just remember that copyright **protects the
 creators rights to their work**.
 
-See my repo at [raehik/licenses](!GitHub) for more detail.
+See my repo at [raehik/licenses](https://github.com/raehik/licenses) for
+more detail.
 
 
 ### Computer Misuse Act
@@ -100,6 +101,12 @@ specific things you need to know that it prohibits are:
 Note that it must be proved that the perpetrator *knew* they were
 unauthorised. Furthermore, to prove **intent**, it must be shown that
 they planned to use the information maliciously.
+
+*(Note: do* ***not*** *confuse this with the Data Protection Act! This
+Act has something to do with personal data, but it's not centred around
+it. This Act is less likely to come up, IMO, and it'll be clear which
+one they're talking about (it'll be all malicious and hacker-y if it's
+the Computer Misuse Act).)*
 
 
 ### Data Protection Act
