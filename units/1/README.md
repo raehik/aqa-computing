@@ -1,5 +1,8 @@
 COMP1 is examined in a single 2h exam in May/June.
 
+The 2015 exam shall be sat on May 20th (TODO: around there anyway)
+
+
 1.1 Fundamentals of Problem Solving
 ===================================
 
