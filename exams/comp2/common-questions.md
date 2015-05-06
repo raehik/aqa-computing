@@ -45,3 +45,22 @@ the **SR** is updated.
   3. CIR <-- [MBR]
   4. Decode instruction
   5. Execute instruction
+
+
+Describe the roles of each layer in the TCP/IP stack.
+-----------------------------------------------------
+
+*A horror of an 8 marker. Hope that you don't get this one.*
+
+  * TODO: tons of bullshit about app, link, internet & transport layers
+
+
+HTML questions
+--------------
+
+There are a few different ones AQA like to ask. Usually they're quite
+fun, but surprisingly easy to lose marks on.
+
+
+Which legislation does this act fall under?
+-------------------------------------------
