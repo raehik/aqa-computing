@@ -61,6 +61,23 @@ HTML questions
 There are a few different ones AQA like to ask. Usually they're quite
 fun, but surprisingly easy to lose marks on.
 
+Remember these things:
+
+  * All headers are assumed to be larger than normal `<p>`s.
+  * When a list finishes, there's a paragraph gap between it and the
+    next element.
+  * When a header is coming up, there's a bigger gap between the end of
+    the last element and the header.
+  * Lists are begun with `<ol>` (for an ordered list) or `<ul>` (for an
+    unordered list), then elements are specified with `<li>`.
+
 
 Which legislation does this act fall under?
 -------------------------------------------
+
+  * A computer administrator installs software onto their family's home
+    computer which was licensed for use in their company.
+    * Copyright, Designs & Patents Act
+  * A goverment body asks the owner of a voice-communication program to
+    hand over the logs belonging to a suspected criminal.
+    * Regulation of Investigatory Powers Act
