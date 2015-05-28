@@ -16,8 +16,8 @@ like it, but as long as you code like a 3-year-old (no offence meant to
     wouldn't need to in your language (often in Python).
   * `+=` and `-=` operators are fair game, though.
   * I highly suggest using the exact same variable names as they do,
-    even if it  means committing atrocious naming convention crimes (rip
-    [PEP 8][]). Keep in mind that the markscheme uses the exact variable
-    names they provide (though I think they may ignore case: TODO?).
+    even if it means committing atrocious naming convention crimes (rip
+    [PEP 8][]). Keep in mind that the markscheme uses the **exact**
+    variable names they provide (though they ignore case).
 
 [PEP 8]: https://www.python.org/dev/peps/pep-0008/
