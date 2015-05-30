@@ -2,10 +2,13 @@ The devices we must know principles of operation for are in **bold**.
 
 The Wikibook for this course has *extensive* coverage of all these
 devices, much of it taken directly from Wikipedia pages. The pages
-you'll want are [Input devices][] and [Output devices][].
+you'll want are [Input devices][], [Output devices][] and [Secondary
+storage devices][].
 
 [Input devices]: http://en.wikibooks.org/wiki/A-level_Computing/AQA/Computer_Components,_The_Stored_Program_Concept_and_the_Internet/Hardware_Devices/Input_devices
 [Output devices]: http://en.wikibooks.org/wiki/A-level_Computing/AQA/Computer_Components,_The_Stored_Program_Concept_and_the_Internet/Hardware_Devices/Output_devices
+[Secondary storage devices]:
+http://en.wikibooks.org/wiki/A-level_Computing/AQA/Computer_Components,_The_Stored_Program_Concept_and_the_Internet/Hardware_Devices/Secondary_storage_devices
 
 
 Input methods and devices
