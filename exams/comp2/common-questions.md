@@ -50,9 +50,27 @@ the **SR** is updated.
 Describe the roles of each layer in the TCP/IP stack.
 -----------------------------------------------------
 
-*A horror of an 8 marker. Hope that you don't get this one.*
+Sending:
 
-  * TODO: tons of bullshit about app, link, internet & transport layers
+  1. **Application layer:** select appropriate protocol
+  2. **Transport layer**: split data into packets, establish an
+     end-to-end connection
+  3. **Network layer**: adds source & destination IP addresses
+  4. **Link layer**: physical interface with cabling, adds MAC addresses
+
+Receiving:
+
+  4. **Link layer**: strips MAC addresses
+  3. **Network layer**: strips source & destination IP addresses
+  2. **Transport layer**: reassembles data from packets
+  1. **Application layer:** ? program uses data
+
+
+What is packet switching?
+-------------------------
+
+Messages are split into packets, then numbered, then forwarded to their
+destination, then reassembled.
 
 
 HTML questions
