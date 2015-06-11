@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Print test QP & MS.
+#
+
+print-test comp3-11-jun-qp.pdf
+print-test -f 3 comp3-11-jun-ms.pdf
