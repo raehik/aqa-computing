@@ -46,6 +46,10 @@ OS classification
       * Gives a guaranteed response within a concrete time period
       * *"the right answer late is wrong"*
       * e.g. Plane rudder control system
+  * Batch/transaction
+      * Input is queued and processed in batches when required or in time
+        intervals
+      * **Not time-critical**
   * Network
       * (kinda fake...): A **layer of software** which intercepts commands
         referencing resources elsewhere on the network and redirects them to the
