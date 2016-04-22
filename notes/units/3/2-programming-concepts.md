@@ -105,3 +105,15 @@ usages.
 
   * **FIFO:** add to back, remove from front
   * TODO: anything else I need to know?
+
+
+Searching and sorting
+---------------------
+
+### Binary search
+
+Simply, keep splitting a list in half until you find the element you're looking
+for, or you have no more list.
+
+**N.B.:** when finding the middle element, always *floor it* i.e. the middle
+element of a 4-strong list like [1, 2, 3, 4] is 2.
