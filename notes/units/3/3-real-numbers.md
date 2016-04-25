@@ -6,9 +6,10 @@ Real numbers
 Simple: multiply the mantissa by 2^(exponent). Just like scientific notation.
 Remember about two's complement!
 
+  > mantissa * 2^(exponent)
+
 **Note:** The exponent is stored in two's complement as well! So if it starts
-with 1, then you flip each bit and call it -x. Naturally then you end up
-multiplying by 2^(-x), which shifts things left instead of right.
+with 1, then you flip each bit and call it -x.
 
 
 #### Example
@@ -18,23 +19,19 @@ multiplying by 2^(-x), which shifts things left instead of right.
 *(Note: I added the apostrophe to identify where the mantissa ends and the
 exponent begins.)*
 
-Mantissa: 0.100100100  
-Exponent: 000100 (= 4 in base 10)
+Mantissa: 0.100100100 = 1/2 + 1/16 + 1/128 = 73/128 in base 10
+Exponent: 000100 = 4 in base 10
 
-Remember that in base 2, multiplying by a power of 2 just shifts all the digits
-to the left or right. So since we're multiplying by 2^(4), simply shift
-everything to the left of the binary point.
+eqn.: 73/128 * 2^(4) = 73/8 = 9.125
 
-value is 0.100100100 * 000100 = 1001.001
+So the denary representation of 0.100100100'000100 is 9.125.
 
-Then you use your normal method to convert it to denary:
+*Note: An alternative method is to do the multiplication in binary. Just find
+the exponent in denary, then you know how many places you'll need to shift each
+bit (it's just like multiplying by 10 in base 10). But using this method, you'll
+get the answer in binary. So maybe use whichever one is more relevant to the
+question.*
 
-```text
-1   0   0   1 . 0   0   1
-8   4   2   1 . 1/2 1/4 1/8
-
-8 + 1 + 1/8 = 9.125
-```
 
 ### Normalisation
 
