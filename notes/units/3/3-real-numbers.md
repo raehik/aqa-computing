@@ -57,3 +57,42 @@ Basically this:
     negative number with the same issue.
   * `0.110100'00011` and `1.010100'00011` would both be normalised two's
     complement binary numbers.
+
+
+### Converting a denary number to its normalised binary floating point representation
+
+  1. Find and **write down** (for method mark) the given number in binary.
+     Forget about any leading zeroes -- that's the **normalisation**.
+  2. The mantissa is the binary number starting from the left, and ending where
+     you run out of mantissa storage bits. Yes: this means if there are 1s
+     outside of the mantissa, they will be lost due to precision errors. It's
+     the floating point trade-off. Those numbers can basically be thrown away --
+     but keep them there for the next step.
+  3. The exponent is the number of the places you need to shift the binary point
+     to get it into a `0.1...` form (i.e. normalised floating point). For this
+     step, you just need to where **where the binary point starts**, and **where
+     it needs to end**. A lot of the time it'll be starting at the end (right)
+     of the number, and ending at the start (left).
+
+
+#### Example
+
+Write the normalised floating point representation of the denary value 2944 in
+the following boxes:
+
+    [ ].[ ][ ][ ][ ][ ][ ]   [ ][ ][ ][ ][ ]
+           mantissa             exponent
+
+  1. 2944 = 2^11 + 2^9 + 2^8 + 2^7  
+     so 2944 = 101110000000
+  2. mantissa = 101110
+  3. 101110000000. -> 0.101110  
+     that makes 12  
+     so exponent = 12 = 2^3 + 2^2 = 01100
+
+Answer:
+
+    [0].[1][0][1][1][1][0]   [0][1][1][0][0]
+           mantissa             exponent
+
+    0.101110 01100
