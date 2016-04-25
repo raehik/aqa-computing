@@ -6,6 +6,11 @@ Real numbers
 Simple: multiply the mantissa by 2^(exponent). Just like scientific notation.
 Remember about two's complement!
 
+**Note:** The exponent is stored in two's complement as well! So if it starts
+with 1, then you flip each bit and call it -x. Naturally then you end up
+multiplying by 2^(-x), which shifts things left instead of right.
+
+
 #### Example
 
   > 0.100100100'000100
