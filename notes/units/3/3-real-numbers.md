@@ -1,6 +1,12 @@
 Real numbers
 ------------
 
+### Two's complement refresher
+
+  1. Flip all the bits.
+  2. **Add one to the result!**
+
+
 ### Calculating the denary representation of a floating point number
 
 Simple: multiply the mantissa by 2^(exponent). Just like scientific notation.
