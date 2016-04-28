@@ -104,7 +104,13 @@ usages.
 ### Queue
 
   * **FIFO:** add to back, remove from front
-  * TODO: anything else I need to know?
+
+  * **Priority queue:** each element has an associated priority, and when an
+                        element is removed, the one with the highest priority is
+                        chosen
+
+Priority queues are similar to linked lists. They are commonly used as event
+queues in simulations (see [Simulation](#simulation)).
 
 
 Searching and sorting
@@ -119,3 +125,34 @@ for, or you have no more list.
 element of a 4-strong list like [1, 2, 3, 4] is 2.
 
 **Complexity:** O(log n) due to being linked with powers of 2.
+
+
+<h2 id="simulation">Simulation</h2>
+
+*Note: This topic has only showed up once in past papers. Don't worry much about
+it.*
+
+  * **Simulation:** the imitation of a process of a real system
+  * **Model:** an abstraction of an entity in the real world or in the problem
+               that enables an automated solution
+  * **State history:** state descriptions at each of a chronological set of
+    instants.
+
+Obviously, if you want useful results, it's important that the simulation model
+reflects the core characteristics of the actual system.
+
+
+### Simulation methodology
+
+  1. **Problem formation:** State objectives & result criteria
+  2. **Observation of the real system:**
+      * identify inputs/outputs
+      * decide on required data and gathering method
+      * know how the system can be formed from subsystems
+      * identify TODO
+  3. **Model formulation:** TODO
+  4. **Model validation:** Stuff like checking logic, **hand simulation**, TODO
+  5. **Program formulation:** TODO
+  6. **Program validation:** Use old data from previous systems and check
+     results from simulation matches with older values.
+  7. **Experiment design & results analysis:** TODO
