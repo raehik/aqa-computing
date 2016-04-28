@@ -96,3 +96,26 @@ Answer:
            mantissa             exponent
 
     0.101110 01100
+
+
+Precision & errors
+------------------
+
+### Precision
+
+  * **Absolute error:** the numeric difference between the actual number and the
+                        stored number
+  * **Relative error:** the percentage error from the actual number, calcuted by
+    doing (absolute err./actual number) * 100
+
+Once more, that's **relative error** being:
+
+    absolute error
+    -------------- * 100
+    actual number
+
+
+### Underflow
+
+  * **Underflow:** value so close to zero that its closest possible
+                   representation is zero
