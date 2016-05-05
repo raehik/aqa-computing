@@ -113,6 +113,29 @@ Priority queues are similar to linked lists. They are commonly used as event
 queues in simulations (see [Simulation](#simulation)).
 
 
+Graphs and trees
+----------------
+
+  * **Degree of a vertex:** number of neighbours (connected vertices) it has
+
+A graph is a *data structure* we use to represent complex relationships in a
+simpler way, using **abstraction** (removing data unnecessary for the problem).
+Think about the London Underground map: stations represent vertices, lines
+represent edges. Unnecessary real-life features such as small turns or accurate
+distances *don't matter* for the user, so they are not shown on the graph.
+
+To process a graph using a program, we must represent the data in a different
+way. The first way we will use is called an **adjacency matrix**.
+
+
+### Adjacency matrix
+
+Basically it's a matrix showing the weights of edges between vertices. It's
+gonna look like the matrix equivalent of a graph from OCR D1, except if there
+are no weights on the graph, you use 1 for a connection and 0 if there isn't
+one.
+
+
 Searching and sorting
 ---------------------
 
