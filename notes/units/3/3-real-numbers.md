@@ -115,7 +115,9 @@ Once more, that's **relative error** being:
     actual number
 
 
-### Underflow
+### Storage errors
 
   * **Underflow:** value so close to zero that its closest possible
                    representation is zero
+  * **Overflow:** resulting value is too large to store in available number of
+                  bits
