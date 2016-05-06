@@ -136,6 +136,11 @@ are no weights on the graph, you use 1 for a connection and 0 if there isn't
 one.
 
 
+### Binary trees
+
+The normal way to search binary trees is **depth-first**.
+
+
 Searching and sorting
 ---------------------
 
