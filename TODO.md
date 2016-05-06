@@ -4,3 +4,5 @@
     * INT
     * BOOLEAN
     * SMALLMONEY
+* Types of sort
+    * Insert sort
