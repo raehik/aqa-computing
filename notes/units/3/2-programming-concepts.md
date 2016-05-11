@@ -113,8 +113,8 @@ Priority queues are similar to linked lists. They are commonly used as event
 queues in simulations (see [Simulation](#simulation)).
 
 
-Graphs and trees
-----------------
+Graphs
+------
 
   * **Degree of a vertex:** number of neighbours (connected vertices) it has
 
@@ -136,9 +136,21 @@ are no weights on the graph, you use 1 for a connection and 0 if there isn't
 one.
 
 
+Trees
+-----
+
 ### Binary trees
 
-The normal way to search binary trees is **depth-first**.
+  * **Root node:** the top node (depth = 1, should be only one node on this
+    level)
+  * **Leaf node:** a node with no children (i.e. at the bottom of the tree).
+  * **Internal node:** a node with both a parent and children (i.e. middle of
+    the tree)
+
+Some ways to traverse trees:
+
+  * **Depth-first**
+  * **Post-order**
 
 
 Searching and sorting
