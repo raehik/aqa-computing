@@ -3,8 +3,13 @@ Real numbers
 
 ### Two's complement refresher
 
+To change a number from +ve to -ve:
+
   1. Flip all the bits.
   2. **Add one to the result!**
+
+Naturally, to go *back* from two's complement, you need to **subtract one and
+flip all the bits**.
 
 
 ### Calculating the denary representation of a floating point number
