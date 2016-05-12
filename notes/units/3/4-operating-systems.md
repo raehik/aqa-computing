@@ -1,8 +1,7 @@
 Operating systems
-=================
+-----------------
 
-Role of an OS
--------------
+### Role of an OS
 
 An OS does these two main things:
 
@@ -11,7 +10,7 @@ An OS does these two main things:
     and that stuff doesn't have to be implemented individually for each program
 
 
-### Resource management
+#### Resource management
 
   * **Processors** -> processor scheduling
   * **Storage** -> memory management
@@ -19,7 +18,7 @@ An OS does these two main things:
   * **Data** -> file management
 
 
-### 'Virtual machine'
+#### 'Virtual machine'
 
 **Virtual machine:** the apparent machine that the OS presents to the user,
                      achieved by hiding the complexities of the hardware behind
@@ -34,10 +33,9 @@ computer running the same OS.
 virtual machine is something entirely different... \***facepalm\**
 
 
-OS classification
------------------
+### OS classification
 
-### Types of OS
+#### Types of OS
 
   * Interactive
       * User can interact with system & vice versa.
@@ -61,7 +59,7 @@ Network can be thought of as another 'base' OS. It's kind of stupid how they
 explain/use it.
 
 
-### Benefits of an OS over firmware
+#### Benefits of an OS over firmware
 
 Not all computers need an OS. For devices which may only perform one function,
 e.g. a washing machine, using an OS would **inflate production costs** and make
@@ -74,7 +72,7 @@ embedded **firmware**. However, OSs can provide these functions:
   * OS replacement/upgrading, again without losing software functionality
 
 
-### Different devices using OSs and not
+#### Different devices using OSs and not
 
   * **Embedded computer system:** system with a limited or non-existent UI,
     designed to operate autonomously from within other machinery
