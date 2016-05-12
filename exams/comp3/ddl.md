@@ -22,5 +22,6 @@ CREATE TABLE Test (
     OwnerName    VARCHAR(50),  -- stores a variable-length string, up to 20 chars
     DateStarted  DATE,         -- stores a date
     MoneyCharged DECIMAL,      -- stores a decimal, good for money etc.
+    OwnerAlive   BOOLEAN,      -- stores a boolean
 )
 ```
