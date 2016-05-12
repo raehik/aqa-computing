@@ -41,7 +41,7 @@ virtual machine is something entirely different... \***facepalm\**
       * User can interact with system & vice versa.
       * e.g. ATM
   * Real-time
-      * Gives a guaranteed response within a concrete time period
+      * Gives a guaranteed response within a concrete time period.
       * *"the right answer late is wrong"*
       * e.g. Plane rudder control system
   * Batch/transaction
@@ -49,14 +49,18 @@ virtual machine is something entirely different... \***facepalm\**
         intervals
       * **Not time-critical**
   * Network
-      * (kinda fake...): A **layer of software** which intercepts commands
-        referencing resources elsewhere on the network and redirects them to the
-        remote resource in a manner transparent to the user
+      * (kinda fake...)
+      * A **layer of software** which intercepts commands referencing resources
+        elsewhere on the network and redirects them to the remote resource in a
+        manner transparent to the user.
       * e.g. how Windows lets you add 'remote drives' (D:, ... N:, ...)
       * Can *also* be interactive & real-time
+  * Server
+      * (also fake)
+      * Provides specialised services to network clients e.g. sharing printers
 
 Network can be thought of as another 'base' OS. It's kind of stupid how they
-explain/use it.
+explain/use it. Same with server.
 
 
 #### Benefits of an OS over firmware
