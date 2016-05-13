@@ -81,11 +81,15 @@ Heap & memory
                         Eventually, no memory is left in the heap.
 
 
-Stacks and queues
------------------
+Stacks & queues
+---------------
 
   * **Abstract data type:** one whose properties are specified independently of
                             any programming language
+  * **Static data structure:** fixed size, can waste storage if number of data
+    items stored is less than the structure size
+  * **Dynamic data structure:** dynamic size, require memory to store a pointer
+    to next item
 
 **Stacks** and **queues** are both abstract data types. You may also hear them
 called **dynamic data structures**. I'll skim over how each one works & common
