@@ -1,19 +1,14 @@
 DDL
-===
+---
 
-TODO
-
-
-General notes
--------------
+### General notes
 
   * Just like SQL (even though you don't *need* them), use caps for language
     statements & words.
   * Seems to take most syntax from MySQL.
 
 
-Creating tables
----------------
+### Creating tables
 
 ```sql
 CREATE TABLE Test (
@@ -25,3 +20,14 @@ CREATE TABLE Test (
     OwnerAlive   BOOLEAN,      -- stores a boolean
 )
 ```
+
+  * Where not specified for you, **do not** give lengths. The markschemes always
+    say they're optional, unless it tells you in the context that it has a
+    specific length (in which case you might be using `CHAR`).
+
+
+### SELECTs
+
+  * To order results alphabetically, add this at the end of the SELECT
+    statement:
+      * `ORDER BY FieldName(ASC)`
