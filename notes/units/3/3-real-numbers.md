@@ -126,3 +126,5 @@ Once more, that's **relative error** being:
                    representation is zero
   * **Overflow:** resulting value is too large to store in available number of
                   bits
+  * **Cancellation:** no change to result when adding a small number to a big
+                      one: therefore *loss of accuracy* due to precision limits
