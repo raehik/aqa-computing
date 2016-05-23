@@ -143,6 +143,13 @@ one.
 Trees
 -----
 
+Trees are a **type of graph** with these properties:
+
+  * Connected
+  * Undirected
+  * No cycles
+
+
 ### Binary trees
 
   * **Root node:** the top node (depth = 1, should be only one node on this
