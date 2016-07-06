@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>1.6-regex-bnf-rpn.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="regex-bnf-and-rpn">Regex, BNF and RPN</h2>
+
+<h3 id="natural-amp-formal-language">Natural &amp; formal language</h3>
+
+<p>A <strong>natural language</strong> is a human language e.g. English. It&rsquo;s made up of
+symbols and rules.</p>
+
+<p>A <strong>formal language</strong> is one which has an <em>alphabet</em> (elements of which are
+called <em>symbols</em>) and <em>rules of syntax</em>. The latter defines how to construct
+<em>strings</em> from the symbols. To show the way you write these things, consider the
+formal language pencil lead hardnesses:</p>
+
+<ul>
+<li>Alphabet: {H, B, 2, 3, 4}</li>
+<li>Strings: {&ldquo;B&rdquo;, &ldquo;H&rdquo;, &ldquo;2B&rdquo;, &ldquo;3B&rdquo;}</li>
+</ul>
+
+<p>Note that strings are enclosed in double quotes to differentiate them from
+symbols.</p>
+
+<p>In most languages however, there are a limitness number of valid strings. We
+need some way of expressing the rules defining how strings can be formed from
+symbols. We call these notations <strong>metalanguages</strong>. The ones we&rsquo;ll be talking
+about are <strong>regular expressions (regex)</strong> and <strong>Backus-Naur Form (BNF)</strong>.</p>
+
+<h3 id="regular-languages-amp-regex">Regular languages &amp; regex</h3>
+
+<p><strong>Regular language:</strong> any language that an FSM would accept</p>
+
+<p>See my regex cheatsheet in my wiki for notes. If you don&rsquo;t have access to my
+wiki 2BAD</p>
+
+<h3 id="backus-naur-form">Backus-Naur form</h3>
+
+<p>Some languages can&rsquo;t be defined using regexes. For example, what if you must
+allow any depth of bracket nesting, e.g. for expressions in C? Regex quickly
+becomes rather cumbersome for some tasks, and the textbook says that it simply
+can&rsquo;t define such a language in this case. Instead, we use <strong>BNF</strong> to define
+<strong>grammars</strong> for languages.</p>
+
+<h4 id="notation">Notation</h4>
+
+<p>BNF is made up of <strong>rules</strong>. A rule looks like this:</p>
+<div class="highlight"><pre>&lt;non-terminal&gt; ::= terminal replacement | &lt;non-terminal replacement&gt;
+</pre></div>
+<p>(<code>::=</code> means &lsquo;defined as/consists of&rsquo;. Arrows are also used sometimes.)</p>
+
+<p>Rules map non-terminals to terminals and other non-terminals.</p>
+
+<p>You can think of non-terminal symbols as <strong>categories</strong> such as nouns, verbs
+etc. and terminal symbols as <strong>symbols</strong> from the alphabet of a formal language.
+That&rsquo;s why you only have <strong>non-terminal symbols on the left</strong>, because terminal
+symbols are just strings (so they don&rsquo;t map to anything further).</p>
+
+<p>Here&rsquo;s a complete grammar defining the language used to express pencil hardness:</p>
+<div class="highlight"><pre>&lt;lead hardness&gt; ::= HB | &lt;scale of hardness&gt; | &lt;simple hardness&gt;
+&lt;scale of hardness&gt; ::= &lt;numeric value&gt;&lt;simple hardness&gt;
+&lt;numeric value&gt; ::= 2 | 3 | 4
+&lt;simple hardness&gt; ::= H | B
+</pre></div>
+<p>Note that we define rules top-down i.e. in increasing &#39;simplicity&rsquo;. So terminals
+are nearer the bottom. I think it&rsquo;s just convention.</p>
+
+<p>There are actually a few different ways of parsing something according to a
+grammar. The most used one is top-down parsing (LL). I originally guessed that
+it would be easiest to parse things bottom-up, known as LR parsing. Luckily
+though, we don&rsquo;t have to understand how to parse grammars, so I won&rsquo;t be
+covering them: if you&rsquo;d like to know more, check out <a href="http://www.garshol.priv.no/download/text/bnf.html">Lars Marius Garshol&rsquo;s
+page on BNF</a>. For now all you
+need to really know are <strong>parse trees</strong> and <strong>syntax diagrams</strong>.</p>
+
+<ul>
+<li><strong>Parse tree:</strong> visual representation of how a valid sentence conforms to
+                the syntax rules</li>
+<li><strong>Syntax diagram:</strong> basically just a flow diagram for each rule of a grammar
+                    defined with BNF</li>
+</ul>
+
+<h3 id="reverse-polish-notation">Reverse Polish notation</h3>
+
+<p>tl;dr given an expression:</p>
+
+<ul>
+<li>When a number is reached, push it to the top of the stack.</li>
+<li>When an operator is reached, pop the most recent two numbers and apply the
+operator. Push the result on to the stack.</li>
+</ul>
+
+<p>Let&rsquo;s do an <em>(edit: overly complex)</em> example. I want to change the RPN
+expression <code>3x 1 + x -5 + * 3x 1 + 5x 4 + * /</code> into normal infix notation.</p>
+
+<ol>
+<li><code>3x</code>: push <code>3x</code> onto stack. STACK: <code>3x</code></li>
+<li><code>1</code>: push <code>1</code> onto stack. STACK: <code>3x 1</code></li>
+<li><code>+</code>: add last 2 elements &amp; push = <code>3x + 1</code>. STACK: <code>(3x + 1)</code></li>
+<li><code>x</code>: push <code>x</code> onto stack. STACK: <code>(3x + 1) x</code></li>
+<li><code>-5</code>: push <code>-5</code> onto stack. STACK: <code>(3x + 1) x -5</code></li>
+<li><code>+</code>: add last 2 elements &amp; push = <code>x + 5</code>. STACK: <code>(3x + 1) (x + 5)</code></li>
+<li><code>*</code>: multiply 2 most recent elements &amp; push = <code>(3x + 1)(x + 5). STACK:</code>(3x + 1)(x + 5)`</li>
+</ol>
+
+<p>Let&rsquo;s pause here, because it&rsquo;s getting crowded. Note how the next part up to <code>*</code>
+is identical to these steps? That operation added each pair and multiplied them.
+Do the same then with <code>3x 1 + 5x 4 *</code>:</p>
+
+<ol>
+<li>STACK: <code>(3x + 1)(x + 5) (3x + 1)(5x + 4)</code></li>
+<li><p><code>/</code>: divide 2 most recent elements &amp; push:</p>
+<div class="highlight"><pre>(3x + 1)(x + 5)
+----------------
+(3x + 1)(5x + 4)
+</pre></div></li>
+</ol>
+
+<p>Easy! The nice thing about RPN is that you can just walk through it step-by-step
+and arrive at the answer (given correct working, of course).</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

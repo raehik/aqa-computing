@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>1.2-algorithms.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="algorithms">Algorithms</h2>
+
+<ul>
+<li><strong>Algorithm:</strong> a sequence of unambiguous instructions for solving a problem
+               in a finite amount of time</li>
+<li><strong>Computational complexity:</strong> how economical an algorithm is with <em>time and
+                              space</em></li>
+<li><strong>Time complexity:</strong> indicates how fast an algorithm runs</li>
+<li><strong>Space complexity:</strong> indicates how much memory an algorithm needs</li>
+</ul>
+
+<p>Things that can impact algorithm run time:</p>
+
+<ul>
+<li>Input size (number of inputs)</li>
+<li>Data type (e.g. integers vs. strings)</li>
+</ul>
+
+<p>In many algorithms, certain inputs can make the algorithm take very long to
+return, maybe have to check each individual input value, while others can be
+almost instant. The former we call <strong>worst-case complexity</strong>, and the latter
+<strong>best-case complexity</strong>. Averaging all the times for each possible input gives
+us the <strong>average-case complexity</strong>.</p>
+
+<ul>
+<li><strong>Complexity of a problem:</strong> the <em>worst-case complexity</em> of the most
+                             efficient algorithm which solves the problem</li>
+</ul>
+
+<p>When considering the complexity of a problem, we always use the worst-case
+value.</p>
+
+<h3 id="measuring-time">Measuring time</h3>
+
+<p><strong>Basic operation:</strong> the operation in an algorithm contributing the most to
+                     total running time</p>
+
+<p>Algorithms <strong>aren&rsquo;t measured in terms of time</strong>, since that would be entirely
+dependent on the host computer&rsquo;s speed. Instead, we look at the <em>number of
+operations</em>. However, this can be demanding to do.</p>
+
+<p>It&rsquo;s sufficient to identify just the operation that contributes most to the
+running time: the <strong>basic operation</strong>.</p>
+
+<h3 id="order-of-growth">Order of growth</h3>
+
+<p><strong>Order of growth:</strong> what factor execution time increases when the size of the
+                     input is increased</p>
+
+<p>We shouldn&rsquo;t need to know any more, but the book goes into some simple algebra,
+proving why doubling the input size of the <em>natural numbers sum algorithm</em>
+quadruples the execution time. The algorithm is <code>(n/2)(n + 1)</code>, so the basic
+operation is <code>(n/2)^2</code>. We can find the factor change by doing
+<code>time(2n)/time(n)</code>, and you&rsquo;ll get a <code>(2n)^2/(n)^2</code> -&gt; bla bla &ndash;&gt; <code>4/1</code>.</p>
+
+<p>In the proof, the factor <code>1/2</code> was cancelled out. For that reason, they are
+ignored in the order of growth. So in this case, the order of growth is
+<em>quadratic</em>: this is denoted by <strong>O(n<sup>2</sup>)</strong>.</p>
+
+<h3 id="big-o-notation">Big O notation</h3>
+
+<ul>
+<li><strong>O(g):</strong> <em>&ldquo;big O of g&rdquo;</em>, represents the class of functions that grow no
+          faster than g</li>
+<li><strong>Order of complexity:</strong> the big O complexity of a problem</li>
+</ul>
+
+<p>e.g. an algorithm that grows at rate n<sup>2</sup> cannot belong to the class O(n),
+because it grows faster than that.</p>
+
+<h4 id="orders-of-complexity-rankings">Orders of complexity rankings</h4>
+
+<p><strong>EXAM QUESTION:</strong> You could be asked to rank some given algorithms in terms of
+their complexity. Here&rsquo;s the order they go in from least complex to most:</p>
+
+<ul>
+<li>O(n<sup>0</sup>) <em>{= O(0)}</em></li>
+<li>O(log n)</li>
+<li>O(n) <em>(linear time)</em></li>
+<li>O(n log n)</li>
+<li>O(n<sup>2</sup>) <em>(polynomial time)</em></li>
+<li>O(n<sup>3</sup>)</li>
+<li>&hellip;</li>
+<li>O(2<sup>n</sup>) <em>(exponential time)</em></li>
+<li>O(3<sup>n</sup>)</li>
+<li>&hellip;</li>
+<li>O(n!) <em>(factorial time)</em></li>
+</ul>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

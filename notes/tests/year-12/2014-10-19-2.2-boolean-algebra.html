@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>2014-10-19-2.2-boolean-algebra.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h1 id="2-2-fundamental-hardware-elements-of-computers-as-comp2-topic-tests">2.2 Fundamental Hardware Elements of Computers (AS COMP2 Topic Tests)</h1>
+
+<p>1.
+  a)
+    i) True if condition is false
+    ii) True if condition 1 is true or condition 2 is true</p>
+
+<p>b)
+     A     | B     | Q
+     &mdash;&mdash;|&mdash;&mdash;-|&mdash;&mdash;
+     True  | True  | False
+     True  | False | True
+     False | True  | True
+     False | False | False</p>
+
+<p>2.
+  a)
+    i) NAND
+    ii) XOR</p>
+
+<p>b)
+    i) 1
+    ii) 0
+    iii) 1</p>
+
+<p>c)
+    A &ndash;|\
+        | |&mdash;&ndash;||\
+    B &ndash;|/      )) |&mdash; Q
+    C &mdash;&mdash;&mdash;-||/</p>
+
+<p>3.
+  a)
+     A + B = NOT(NOT(A).NOT(B))</p>
+<div class="highlight"><pre> and
+
+ A.B = NOT(NOT(A) + NOT(B))
+</pre></div>
+<p>b) They allow you to use fewer types of gates, as you can convert
+     between AND and OR. This means you might only need to use one chip
+     rather than multiple for different types of gate.</p>
+
+<p>c)
+     A + B:</p>
+<div class="highlight"><pre> A     | B     | Q
+ ------|-------|------
+ True  | True  | True
+ True  | False | True
+ False | True  | True
+ False | False | False
+
+ NOT(NOT(A).NOT(B)):
+
+ A     | B     | NOT A | NOT B | NOT Q | Q
+ ------|-------|-------|-------|-------|------
+ True  | True  | False | False | False | True
+ True  | False | False | True  | False | True
+ False | True  | True  | False | False | True
+ False | False | True  | True  | True  | False
+
+ Q = Q
+</pre></div>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>3-real-numbers.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="real-numbers">Real numbers</h2>
+
+<h3 id="two-39-s-complement-refresher">Two&rsquo;s complement refresher</h3>
+
+<p>To change a number from +ve to -ve:</p>
+
+<ol>
+<li>Flip all the bits.</li>
+<li><strong>Add one to the result!</strong></li>
+</ol>
+
+<p>Naturally, to go <em>back</em> from two&rsquo;s complement, you need to <strong>subtract one and
+flip all the bits</strong>.</p>
+
+<h3 id="calculating-the-denary-representation-of-a-floating-point-number">Calculating the denary representation of a floating point number</h3>
+
+<p>Simple: multiply the mantissa by 2<sup>exponent</sup>. Just like scientific notation.
+Remember about two&rsquo;s complement!</p>
+
+<blockquote>
+<p>mantissa * 2<sup>exponent</sup></p>
+</blockquote>
+
+<p><strong>Note:</strong> The exponent is stored in two&rsquo;s complement as well! So if it starts
+with 1, then you flip each bit and call it -x.</p>
+
+<h4 id="example">Example</h4>
+
+<blockquote>
+<p>0.100100100&#39;000100</p>
+</blockquote>
+
+<p><em>(Note: I added the apostrophe to identify where the mantissa ends and the
+exponent begins.)</em></p>
+
+<p>Mantissa: 0.100100100 = &frac12; + 1/16 + 1/128 = 73/128 in base 10
+Exponent: 000100 = 4 in base 10</p>
+
+<p>eqn.: 73/128 * 2<sup>4</sup> = 73/8 = 9.125</p>
+
+<p>So the denary representation of 0.100100100&#39;000100 is 9.125.</p>
+
+<p><em>Note: An alternative method is to do the multiplication in binary. Just find
+the exponent in denary, then you know how many places you&rsquo;ll need to shift each
+bit (it&rsquo;s just like multiplying by 10 in base 10). But using this method, you&rsquo;ll
+get the answer in binary. So maybe use whichever one is more relevant to the
+question.</em></p>
+
+<h3 id="normalisation">Normalisation</h3>
+
+<p>You know how when doing scientific notation, we make sure the main
+number/mantissa is <code>1 =&lt; x &lt; 10</code>? That&rsquo;s called <strong>normalising</strong>. When talking
+about floating-point, normalisation means <strong>the mantissa should have a
+significant first bit</strong>. This means as few significant bits as possible are
+lost. Meaning that:</p>
+
+<blockquote>
+<p>Normalisation <strong>maximises precision</strong> for a given number of bits.</p>
+</blockquote>
+
+<p>Basically this:</p>
+
+<ul>
+<li><code>0.010100&#39;00011</code> is <strong>NOT normalised</strong>, because the first bit after the
+binary point is not 1.</li>
+<li><code>1.110100&#39;00011</code> is <strong>NOT normalised</strong>, because it&rsquo;s a two&rsquo;s complement
+negative number with the same issue.</li>
+<li><code>0.110100&#39;00011</code> and <code>1.010100&#39;00011</code> would both be normalised two&rsquo;s
+complement binary numbers.</li>
+</ul>
+
+<h3 id="converting-a-denary-number-to-its-normalised-binary-floating-point-representation">Converting a denary number to its normalised binary floating point representation</h3>
+
+<ol>
+<li>Find and <strong>write down</strong> (for method mark) the given number in binary.
+ Forget about any leading zeroes &ndash; that&rsquo;s the <strong>normalisation</strong>.</li>
+<li>The mantissa is the binary number starting from the left, and ending where
+ you run out of mantissa storage bits. Yes: this means if there are 1s
+ outside of the mantissa, they will be lost due to precision errors. It&rsquo;s
+ the floating point trade-off. Those numbers can basically be thrown away &ndash;
+ but keep them there for the next step.</li>
+<li>The exponent is the number of the places you need to shift the binary point
+ to get it into a <code>0.1...</code> form (i.e. normalised floating point). For this
+ step, you just need to where <strong>where the binary point starts</strong>, and <strong>where
+ it needs to end</strong>. A lot of the time it&rsquo;ll be starting at the end (right)
+ of the number, and ending at the start (left).</li>
+</ol>
+
+<h4 id="example">Example</h4>
+
+<p>Write the normalised floating point representation of the denary value 2944 in
+the following boxes:</p>
+<div class="highlight"><pre>[ ].[ ][ ][ ][ ][ ][ ]   [ ][ ][ ][ ][ ]
+       mantissa             exponent
+</pre></div>
+<ol>
+<li>2944 = 2<sup>11</sup> + 2<sup>9</sup> + 2<sup>8</sup> + 2<sup>7</sup><br>
+ so 2944 = 101110000000</li>
+<li>mantissa = 101110</li>
+<li>101110000000. -&gt; 0.101110<br>
+ that makes 12<br>
+ so exponent = 12 = 2<sup>3</sup> + 2<sup>2</sup> = 01100</li>
+</ol>
+
+<p>Answer:</p>
+<div class="highlight"><pre>[0].[1][0][1][1][1][0]   [0][1][1][0][0]
+       mantissa             exponent
+
+0.101110 01100
+</pre></div>
+<h2 id="precision-amp-errors">Precision &amp; errors</h2>
+
+<h3 id="precision">Precision</h3>
+
+<ul>
+<li><strong>Absolute error:</strong> the numeric difference between the actual number and the
+                    stored number</li>
+<li><strong>Relative error:</strong> the percentage error from the actual number, calcuted by
+doing (absolute err./actual number) * 100</li>
+</ul>
+
+<p>Once more, that&rsquo;s <strong>relative error</strong> being:</p>
+<div class="highlight"><pre>absolute error
+-------------- * 100
+actual number
+</pre></div>
+<h3 id="storage-errors">Storage errors</h3>
+
+<ul>
+<li><strong>Underflow:</strong> value so close to zero that its closest possible
+               representation is zero</li>
+<li><strong>Overflow:</strong> resulting value is too large to store in available number of
+              bits</li>
+<li><strong>Cancellation:</strong> no change to result when adding a small number to a big
+                  one: therefore <em>loss of accuracy</em> due to precision limits</li>
+</ul>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

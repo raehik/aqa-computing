@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>submission.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<p><strong>folder:</strong> <a href="https://github.com/raehik/hamming-coder">https://github.com/raehik/hamming-coder</a>
+<strong>commit:</strong> <a href="https://github.com/raehik/hamming-coder/commit/e83dcde9745ad4693324ea4f15bf9899c0a18c32">https://github.com/raehik/hamming-coder/commit/e83dcde9745ad4693324ea4f15bf9899c0a18c32</a></p>
+<div class="highlight"><pre>e83dcde: initial commit: **** me sideways it works
+</pre></div>
+<p>Coder implemented, seems to work mostly. Might not work if number of
+data bits is 2<sup>n</sup> - 1, since I had to do some <em>really</em> hacky stuff to get
+bits to work in those &lsquo;edge&rsquo; cases. But I can&rsquo;t find a reliable and
+easy-to-use calculator online, so I haven&rsquo;t checked many inputs.</p>
+
+<p>Probably would&rsquo;ve been easier if I knew how to deal with bits in a
+programming language. No doubt it&rsquo;d be possible in C, but I&rsquo;m not so
+confident in it. Instead, my implementation here used a list of
+Integers, each being 1 or 0. Not the worst idea, but way overkill
+considering each one is represented as something like 0000000000000001
+(assuming 16-bit).</p>
+
+<p>The thing that I worked out a little late was that you had to insert the
+parity bits first, then work out their value. I could definitely improve
+speed by caching the parity bits&rsquo; positions, but I was lazy and kinda
+just copied the same code I used to loop through for positions at powers
+of 2 :/</p>
+
+<p>Tested using Ruby 2.1.3p242.</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

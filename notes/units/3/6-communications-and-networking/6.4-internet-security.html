@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>6.4-internet-security.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="internet-security">Internet security</h2>
+
+<h3 id="firewalls">Firewalls</h3>
+
+<p>A firewall is a hardware device or program which sits between the big scary
+Internet and a network device (or the whole network if it&rsquo;s on the router) and
+block packets which fit specified rules. You can block anything that you can
+analyse:</p>
+
+<ul>
+<li>Specific ports</li>
+<li>Specific protocols</li>
+<li>Specific IP addresses/domain names</li>
+</ul>
+
+<p>Alternatively, firewalls can be made to search packets for text patterns and
+block or allow based on matches, or identify unusual behaviour from a host.
+Firewalls can also act as a proxy server, effectively preventing external
+(Internet) computers from accessing devices on the LAN.</p>
+
+<h3 id="public-private-key-cryptography">Public/private key cryptography</h3>
+
+<p>From Wikipedia:</p>
+
+<blockquote>
+<p>Public-key encryption, in which a message is encrypted with a recipient&rsquo;s
+public key. The message cannot be decrypted by anyone who does not possess
+the matching private key, who is thus presumed to be the owner of that key
+and the person associated with the public key. This is used in an attempt
+to ensure confidentiality.</p>
+
+<p>Digital signatures, in which a message is signed with the sender&rsquo;s
+private key and can be verified by anyone who has access to the
+sender&rsquo;s public key. This verification proves that the sender had
+access to the private key, and therefore is likely to be the person
+associated with the public key. This also ensures that the message has
+not been tampered with, as any manipulation of the message will result
+in changes to the encoded message digest, which otherwise remains
+unchanged between the sender and receiver.</p>
+</blockquote>
+
+<p>Basically this is a version of pub/priv key encryption which uses all four keys
+to guarantee that <em>(1)</em> the message can only be from one person, and <em>(2)</em> the
+message can only be decrypted by one person. (Rather than just one of those,
+which I originally thought was more common or something. Never really thought
+about it tbh.)</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

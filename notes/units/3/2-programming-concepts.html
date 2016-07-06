@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>2-programming-concepts.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="programming-paradigms">Programming paradigms</h2>
+
+<h3 id="imperative-procedural-programming">Imperative/procedural programming</h3>
+
+<ul>
+<li>Specify sequence of operations in order to change the <strong>program&rsquo;s state</strong></li>
+<li>e.g. Java (with OOP features)</li>
+</ul>
+
+<h3 id="functional-programming">Functional programming</h3>
+
+<ul>
+<li>Programs define <strong>mathematical functions</strong></li>
+<li>A solution to a problem consists of series of <strong>function calls</strong></li>
+<li>No variables, assignments</li>
+<li>There are <em>lists</em> and <em>functions</em> that manipulate lists</li>
+<li>e.g. Haskell</li>
+</ul>
+
+<h3 id="logic-programming">Logic programming</h3>
+
+<ul>
+<li>A <strong>knowledge base</strong> is built up through writing <strong>facts &amp; rules</strong> about a
+<em>&lsquo;specific area of expertise&rsquo;</em> (wtf)</li>
+<li>Next, an <strong>inference engine</strong> with the ability to <em>backtrack</em> will use the
+knowledge base to answer queries (by responding to a <strong>goal</strong>)</li>
+<li>e.g. Prolog (often used for AI)</li>
+</ul>
+
+<h3 id="event-driven-programming">Event-driven programming</h3>
+
+<ul>
+<li>Subroutines are executed <strong>in response to events</strong>, rather than in an order
+specified by the programmer</li>
+<li>All about having a <strong>system loop</strong> running from application life to death</li>
+<li>If several events occur, they are put in a queue and the relevant handlers
+are executed in turn</li>
+<li>e.g. most GUI frameworks</li>
+</ul>
+
+<h3 id="object-oriented-programming">Object-oriented programming</h3>
+
+<ul>
+<li>Build complex concepts/solve complex problems from putting together smaller
+blocks</li>
+<li>Separation of concerns</li>
+<li>Makes different levels of abstraction clear and separate</li>
+</ul>
+
+<h2 id="recursion">Recursion</h2>
+
+<p>Recursion is the ability for a subroutine to <em>call itself</em>. A recursive routine
+is defined in terms of itself.</p>
+
+<ul>
+<li>Each time a routine is called, the return address, register contents and
+any local variables are stored in the <strong>stack</strong>.</li>
+<li>The location of the stack for one routine call is called the <strong>stack
+frame</strong>.</li>
+<li>When a routine ends, the stack frame is removed (i.e. popped) from the
+stack.</li>
+<li>If too many recursive calls are made, the stack space may run out &ndash;
+resulting in the classic <strong>stack overflow</strong> error.</li>
+</ul>
+
+<h2 id="lists-amp-pointers">Lists &amp; pointers</h2>
+
+<ul>
+<li><strong>Linear list:</strong> elements stored contiguously (next to each other)</li>
+<li><strong>Linked list:</strong> each element (node) holds a pointer which points to the
+                 memory address of the next element in the list</li>
+<li><strong>Pointer:</strong> variable containing a memory address (the data residing at the
+             address can be accessed via <em>dereferencing</em>)</li>
+</ul>
+
+<h2 id="heap-amp-memory">Heap &amp; memory</h2>
+
+<ul>
+<li><strong>Heap:</strong> the memory locations available to <em>application programs</em> for
+          dynamic allocation</li>
+<li><strong>Dynamic allocation:</strong> means that memory is only allocated as required (at
+                        run time)</li>
+<li><strong>Memory leakage:</strong> calls to allocate more memory are made, but memory
+                    locations no longer required <em>are not released</em>.
+                    Eventually, no memory is left in the heap.</li>
+</ul>
+
+<h2 id="stacks-amp-queues">Stacks &amp; queues</h2>
+
+<ul>
+<li><strong>Abstract data type:</strong> one whose properties are specified independently of
+                        any programming language</li>
+<li><strong>Static data structure:</strong> fixed size, can waste storage if number of data
+items stored is less than the structure size</li>
+<li><strong>Dynamic data structure:</strong> dynamic size, require memory to store a pointer
+to next item</li>
+</ul>
+
+<p><strong>Stacks</strong> and <strong>queues</strong> are both abstract data types. You may also hear them
+called <strong>dynamic data structures</strong>. I&rsquo;ll skim over how each one works &amp; common
+usages.</p>
+
+<h3 id="stack">Stack</h3>
+
+<ul>
+<li><strong>LIFO:</strong> &ndash; push/pop elements onto/from the top</li>
+<li>Stores return address, variables and register contents whenever a function
+call is made (mentioned in the recursion section)</li>
+<li>e.g. used by compilers when translating a high-level language into
+assignment statements</li>
+</ul>
+
+<h3 id="queue">Queue</h3>
+
+<ul>
+<li><p><strong>FIFO:</strong> add to back, remove from front</p></li>
+<li><p><strong>Priority queue:</strong> each element has an associated priority, and when an
+                    element is removed, the one with the highest priority is
+                    chosen</p></li>
+</ul>
+
+<p>Priority queues are similar to linked lists. They are commonly used as event
+queues in simulations (see <a href="#simulation">Simulation</a>).</p>
+
+<h2 id="graphs">Graphs</h2>
+
+<ul>
+<li><strong>Degree of a vertex:</strong> number of neighbours (connected vertices) it has</li>
+</ul>
+
+<p>A graph is a <em>data structure</em> we use to represent complex relationships in a
+simpler way, using <strong>abstraction</strong> (removing data unnecessary for the problem).
+Think about the London Underground map: stations represent vertices, lines
+represent edges. Unnecessary real-life features such as small turns or accurate
+distances <em>don&rsquo;t matter</em> for the user, so they are not shown on the graph.</p>
+
+<p>To process a graph using a program, we must represent the data in a different
+way. The first way we will use is called an <strong>adjacency matrix</strong>.</p>
+
+<h3 id="adjacency-matrix">Adjacency matrix</h3>
+
+<p>Basically it&rsquo;s a matrix showing the weights of edges between vertices. It&rsquo;s
+gonna look like the matrix equivalent of a graph from OCR D1, except if there
+are no weights on the graph, you use 1 for a connection and 0 if there isn&rsquo;t
+one.</p>
+
+<h2 id="trees">Trees</h2>
+
+<p>Trees are a <strong>type of graph</strong> with these properties:</p>
+
+<ul>
+<li>Connected</li>
+<li>Undirected</li>
+<li>No cycles</li>
+</ul>
+
+<h3 id="binary-trees">Binary trees</h3>
+
+<ul>
+<li><strong>Root node:</strong> the top node (depth = 1, should be only one node on this
+level)</li>
+<li><strong>Leaf node:</strong> a node with no children (i.e. at the bottom of the tree).</li>
+<li><strong>Internal node:</strong> a node with both a parent and children (i.e. middle of
+the tree)</li>
+</ul>
+
+<p>Some ways to traverse trees:</p>
+
+<ul>
+<li><strong>Depth-first</strong></li>
+<li><strong>Post-order</strong></li>
+</ul>
+
+<h2 id="searching-and-sorting">Searching and sorting</h2>
+
+<h3 id="binary-search">Binary search</h3>
+
+<p>Simply, keep splitting a list in half until you find the element you&rsquo;re looking
+for, or you have no more list.</p>
+
+<p><strong>N.B.:</strong> when finding the middle element, always <em>floor it</em> i.e. the middle
+element of a 4-strong list like [1, 2, 3, 4] is 2.</p>
+
+<p><strong>Complexity:</strong> O(log n) due to being linked with powers of 2.</p>
+
+<h2 id="simulation">Simulation</h2>
+
+<p><em>Note: This topic has only showed up once in past papers. Don&rsquo;t worry much about
+it.</em></p>
+
+<ul>
+<li><strong>Simulation:</strong> the imitation of a process of a real system</li>
+<li><strong>Model:</strong> an abstraction of an entity in the real world or in the problem
+           that enables an automated solution</li>
+<li><strong>State history:</strong> state descriptions at each of a chronological set of
+instants.</li>
+</ul>
+
+<p>Obviously, if you want useful results, it&rsquo;s important that the simulation model
+reflects the core characteristics of the actual system.</p>
+
+<h3 id="simulation-methodology">Simulation methodology</h3>
+
+<ol>
+<li><strong>Problem formation:</strong> State objectives &amp; result criteria</li>
+<li><strong>Observation of the real system:</strong>
+
+<ul>
+<li>identify inputs/outputs</li>
+<li>decide on required data and gathering method</li>
+<li>know how the system can be formed from subsystems</li>
+<li>identify TODO</li>
+</ul></li>
+<li><strong>Model formulation:</strong> TODO</li>
+<li><strong>Model validation:</strong> Stuff like checking logic, <strong>hand simulation</strong>, TODO</li>
+<li><strong>Program formulation:</strong> TODO</li>
+<li><strong>Program validation:</strong> Use old data from previous systems and check
+ results from simulation matches with older values.</li>
+<li><strong>Experiment design &amp; results analysis:</strong> TODO</li>
+</ol>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

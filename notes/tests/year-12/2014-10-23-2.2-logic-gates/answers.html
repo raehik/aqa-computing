@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>answers.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<p>1.</p>
+<div class="highlight"><pre>A | B | X | C
+--|---|---|--
+0 | 0 | 0 | 1
+0 | 1 | 0 | 1
+1 | 0 | 0 | 1
+1 | 1 | 1 | 0
+</pre></div>
+<p>2.</p>
+<div class="highlight"><pre>A B X C
+0 0 0 0
+0 1 1 0
+1 0 1 0
+1 1 1 0
+</pre></div>
+<p>3.</p>
+<div class="highlight"><pre>A B C X Y D
+0 0 0 1 1 0
+0 0 1 1 1 1
+0 1 0 1 0 0
+0 1 1 1 0 0
+1 0 0 0 0 0
+1 0 1 0 0 0
+1 1 0 0 1 0
+1 1 1 0 1 1
+</pre></div>
+<p>4.</p>
+<div class="highlight"><pre>A B C X Y D
+0 0 0 1 1 0
+0 0 1 1 1 0
+0 1 0 1 0 1
+0 1 1 1 0 0
+1 0 0 0 1 0
+1 0 1 0 1 0
+1 1 0 0 1 0
+1 1 1 0 1 0
+</pre></div>
+<p>5.</p>
+<div class="highlight"><pre>A | B | C | X | Y | Z | D
+--|---|---|---|---|---|--
+0 | 0 | 0 | 0 | 1 | 1 | 0
+0 | 0 | 1 | 0 | 0 | 0 | 1
+0 | 1 | 0 | 0 | 1 | 1 | 0
+0 | 1 | 1 | 0 | 0 | 0 | 1
+1 | 0 | 0 | 0 | 1 | 1 | 0
+1 | 0 | 1 | 0 | 0 | 0 | 1
+1 | 1 | 0 | 1 | 1 | 0 | 1
+1 | 1 | 1 | 1 | 0 | 1 | 0
+</pre></div>
+<p>1.
+  a)</p>
+<div class="highlight"><pre>A | B | NOT A OR B
+--|---|-----------
+0 | 0 | 1
+0 | 1 | 1
+1 | 0 | 0
+1 | 1 | 1
+</pre></div>
+<p>b)</p>
+<div class="highlight"><pre>A | B | NOT A AND B
+--|---|------------
+0 | 0 | 0
+0 | 1 | 1
+1 | 0 | 0
+1 | 1 | 0
+</pre></div>
+<p>c)</p>
+<div class="highlight"><pre>A | B | A NAND B
+--|---|---------
+0 | 0 | 1
+0 | 1 | 1
+1 | 0 | 1
+1 | 1 | 0
+</pre></div>
+<p>d)</p>
+<div class="highlight"><pre>A | B | C | A AND (B OR C)
+--|---|---|---------------
+0 | 0 | 0 | 0
+0 | 0 | 1 | 0
+0 | 1 | 0 | 0
+0 | 1 | 1 | 0
+1 | 0 | 0 | 0
+1 | 0 | 1 | 1
+1 | 1 | 0 | 1
+1 | 1 | 1 | 1
+</pre></div>
+<p>e)</p>
+<div class="highlight"><pre>A | B | C | NOT(A AND (B AND C))
+--|---|---|---------------
+0 | 0 | 0 | 1
+0 | 0 | 1 | 1
+0 | 1 | 0 | 1
+0 | 1 | 1 | 1
+1 | 0 | 0 | 1
+1 | 0 | 1 | 1
+1 | 1 | 0 | 1
+1 | 1 | 1 | 0
+</pre></div>
+<p>3.
+  a)</p>
+<div class="highlight"><pre>A | B | A AND B
+--|---|--------
+0 | 0 | 0
+0 | 1 | 0
+1 | 0 | 0
+1 | 1 | 1
+
+A | B | A NAND B | NOT(A NAND B)
+--|---|----------|--------------
+0 | 0 | 1        | 0
+0 | 1 | 1        | 0
+1 | 0 | 1        | 0
+1 | 1 | 0        | 1
+</pre></div>
+<p>b)</p>
+<div class="highlight"><pre>A | B | A NOR B
+--|---|--------
+0 | 0 | 1
+0 | 1 | 0
+1 | 0 | 0
+1 | 1 | 0
+
+A | B | NOT A | NOT B | (NOT A) AND (NOT B)
+--|---|-------|-------|--------------------
+0 | 0 | 1     | 1     | 1
+0 | 1 | 1     | 0     | 0
+1 | 0 | 0     | 1     | 0
+1 | 1 | 0     | 0     | 0
+</pre></div>
+<ol>
+<li><p>= C</p></li>
+<li><p>= (A + B).B
+= B</p></li>
+<li><p>= B.A</p></li>
+<li><p>typo: A.B.(A + B).(B + B)
+= A.B.(A + B).B
+= A.B.B.B
+= A.B</p></li>
+<li><p>= A + (B + A).(A + B)
+= A + B + A
+= A + B</p></li>
+<li><p>= A.B + A.B&rsquo; + A&rsquo;.B
+= A + B</p></li>
+<li><p>= A&rsquo;.B + B&rsquo;</p></li>
+<li><p>= B.A +  B.C + A.B&rsquo; + B.C&rsquo; + C
+= B.(A + C + C&rsquo;) + A.B&rsquo; + C
+= B.(A + 1) + A.B&rsquo; + C
+= B + A.B&rsquo; + C
+= A.B&rsquo; + B + C</p></li>
+<li><p>= B.C.(A + A&rsquo;) + B&rsquo;.C.(A + A&rsquo;) + A.B.C
+= B.C + B&rsquo;.C + A.B.C
+= C.(B + B&rsquo; + A.B)
+= C.(1 + A.B)
+= C</p></li>
+<li><p>= (A + C).A.D + A.C + C
+= (A + C).(A.D) + C
+= C.A.D + C
+= A.D + C
+???</p></li>
+<li><p>= C.(A&rsquo;.B&rsquo; + A&rsquo;.B + A.B)
+= C.((A + B)&rsquo; + B)
+= C.(A&rsquo; + 1)
+= C.A&rsquo;
+???</p></li>
+<li><p>= (A + B).(A + B&rsquo;).(A&rsquo; + C)
+= A.(A&rsquo; + C)
+= A.0 + A.C
+= A.C</p></li>
+</ol>
+
+<p>13.
+  a) (A&rsquo; + B).B&rsquo;</p>
+
+<p>b) (A&rsquo; + B).(A + B&rsquo;)</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

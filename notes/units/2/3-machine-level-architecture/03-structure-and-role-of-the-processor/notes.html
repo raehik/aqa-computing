@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>notes.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<p><img src="http://www.build-your-own-computer.net/image-files/cpu-diagram.jpg" alt="Abstract processor component
+diagram"></p>
+
+<p><img src="http://www.lrr.in.tum.de/%7Ejasmin/neumann.gif" alt="Processor diagram with
+buses"></p>
+
+<h2 id="structure-of-a-processor">Structure of a processor</h2>
+
+<h3 id="control-unit-cu">Control Unit (CU)</h3>
+
+<p>Coordinates all components within the CPU.</p>
+
+<p>Decodes instruction in CIR &amp; directs the moving of necessary data to the
+ALU.</p>
+
+<h3 id="arithmetic-amp-logic-unit-alu">Arithmetic &amp; Logic Unit (ALU)</h3>
+
+<p>Performs arithmetic (ADD, SUB, MUL) &amp; logical (AND, OR, NOT) operations
+on the data it receives.</p>
+
+<p>Remember that it&rsquo;s arithmetic <strong>and</strong> logic.</p>
+
+<h3 id="registers">Registers</h3>
+
+<p>Registers are what allows a CPU to move information around to different
+components <em>very</em> quickly. Rather than being in a separate module (i.e.
+RAM), registers are directly inside the CPU housing and so are orders of
+magnitude faster.</p>
+
+<p>The two types of register I&rsquo;ll talk about are <strong>general-purpose</strong> and
+<strong>special-purpose</strong>.</p>
+
+<h4 id="general-purpose-registers">General-purpose registers</h4>
+
+<p>&lsquo;E&rsquo; before the register name means it&rsquo;s a 32-bit register.</p>
+
+<p>Not sure what the prefix is for 64-bit registers.</p>
+
+<ul>
+<li>AX (Accumulator register) TODO</li>
+<li>BX (Base register) TODO</li>
+<li>CX (Counter register) TODO</li>
+<li>DX (Data register) TODO</li>
+</ul>
+
+<h4 id="special-purpose-registers">Special-purpose registers</h4>
+
+<ul>
+<li>Instruction Register (IR) &ndash; Temporary storage for current
+instruction.</li>
+<li>Memory Data/Buffer Register (MDR/MBR) &ndash; Two-way register that holds
+data fetched from memory (waiting for CPU) or data waiting to be
+stored (waiting for memory).</li>
+<li>Memory Address register (MAR) &ndash; Holds address in main memory that
+is currently being read/written.</li>
+<li>Program Counter (PC) &ndash; Incrementing counter that keeps track of the
+memory address of the instruction to be executed next.</li>
+</ul>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

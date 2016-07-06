@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Start a useful temporary `ttyrec` environment.
+#
+
+shell="/usr/bin/zsh"
+
+i3-msg 'workspace 10'
+urxvt -e sh -c "i3-msg 'floating toggle' && clear && $shell"
+i3-msg 'workspace back_and_forth'

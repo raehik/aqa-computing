@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>notes.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="number-bases-denary-binary-and-hexadecimal">Number bases: Denary, binary and hexadecimal</h2>
+
+<h3 id="decimal-gt-binary">Decimal -&gt; Binary</h3>
+<div class="highlight"><pre>1532.
+
+1532    508     508     252     124     60      28  12  4   0   0
+1024    512     256     128     64      32      16  8   4   2   1
+1       0       1       1       1       1       1   1   1   0   0
+
+(only ever 1 or 0 2^ns, obv.)
+
+= 10111111100
+</pre></div>
+<h3 id="decimal-gt-hex">Decimal -&gt; Hex</h3>
+<div class="highlight"><pre>1532    252     12
+256     16      1
+5       F       C
+
+5 256s in 1532, 252 left over (5 = 5)
+15 16s in 252, 12 left over (15 = F)
+12 1s in 12, 0 left over (12 = C)
+
+= 0x5FC
+</pre></div>
+<h3 id="binary-gt-hex">Binary -&gt; Hex</h3>
+<div class="highlight"><pre>10001011.
+
+1       0       0       0       1       0       1       1
+8       0       0       0   |   8       0       2       1
+8                           |   B
+
+(split up into nibbles :3)
+
+= 0x8B
+</pre></div>
+<h3 id="binary-gt-decimal">Binary -&gt; Decimal</h3>
+<div class="highlight"><pre>1       1       1       0       1       0       0       1
+2^7     2^6     2^5     0^4     2^3     0^2     0^1     2^0
+128  +  64   +  32   +  0   +   8   +   0   +   0   +   1
+
+= 233
+</pre></div>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

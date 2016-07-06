@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>ddl.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="ddl">DDL</h2>
+
+<h3 id="general-notes">General notes</h3>
+
+<ul>
+<li>Just like SQL (even though you don&rsquo;t <em>need</em> them), use caps for language
+statements &amp; words.</li>
+<li>Seems to take most syntax from MySQL.</li>
+</ul>
+
+<h3 id="creating-tables">Creating tables</h3>
+<div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Test</span> <span class="p">(</span>
+    <span class="n">IDNum</span>        <span class="nb">INT</span>          <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span> <span class="c1">-- stores an integer, key field</span>
+    <span class="n">RegNum</span>       <span class="nb">CHAR</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>      <span class="k">FOREIGN</span> <span class="k">KEY</span><span class="p">,</span> <span class="c1">-- stores a string, exactly 20 chars, foreign key</span>
+    <span class="n">OwnerName</span>    <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>  <span class="c1">-- stores a variable-length string, up to 20 chars</span>
+    <span class="n">DateStarted</span>  <span class="nb">DATE</span><span class="p">,</span>         <span class="c1">-- stores a date</span>
+    <span class="n">MoneyCharged</span> <span class="nb">DECIMAL</span><span class="p">,</span>      <span class="c1">-- stores a decimal, good for money etc.</span>
+    <span class="n">OwnerAlive</span>   <span class="nb">BOOLEAN</span><span class="p">,</span>      <span class="c1">-- stores a boolean</span>
+<span class="p">)</span>
+</pre></div>
+<ul>
+<li>Where not specified for you, <strong>do not</strong> give lengths. The markschemes always
+say they&rsquo;re optional, unless it tells you in the context that it has a
+specific length (in which case you might be using <code>CHAR</code>).</li>
+</ul>
+
+<h3 id="selects">SELECTs</h3>
+
+<ul>
+<li>To order results alphabetically, add this at the end of the SELECT
+statement:
+
+<ul>
+<li><code>ORDER BY FieldName(ASC)</code></li>
+</ul></li>
+</ul>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

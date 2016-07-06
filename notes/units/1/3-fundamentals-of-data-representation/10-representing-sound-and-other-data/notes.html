@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>notes.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="representing-sound">Representing sound</h2>
+
+<p>Sound is transmitted via <em>waves</em>. To represent a sound in a computer,
+we need to convert it to a digital format.</p>
+
+<p>A microphone translates sound waves into a changing voltage &ndash; an
+<strong>analogue</strong> signal. We can convert this into a <strong>digital</strong> format to
+store/edit/play using a computer. When you want to play a sound, the
+opposite happens: the digital representation is converted to an analog
+one which is played through speakers. In brief:</p>
+<div class="highlight"><pre>ADC -&gt; Computer -&gt; DAC
+</pre></div>
+<p><em>(Obviously the last step only happens if you&rsquo;re playing the sound.</em></p>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/5/5a/Conversion_AD_DA.png" alt="A-D -&gt; D-A conversion diagram"></p>
+
+<h3 id="analogue-to-digital-conversion">Analogue-to-digital conversion</h3>
+
+<ul>
+<li>Sampling rate (CD: 48kHz)</li>
+<li>Bit rate (CD: 16-bit)</li>
+</ul>
+
+<h3 id="digital-to-analogue-conversion">Digital-to-analogue conversion</h3>
+
+<p>Original wave is approximated using the digital data recorded about it.
+Depending on the sampling rate and bit rate, it may differ significantly
+from the original wave.</p>
+
+<h2 id="signals">Signals</h2>
+
+<p>To encode an analogue signal entirely, the minimum sampling rate you
+must use is 2 times the <strong>highest</strong> frequency.</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

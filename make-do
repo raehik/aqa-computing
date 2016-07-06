@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+# Short description of the program/script's operation/function.
+#
+
+_BASHPLATE_DIR="$HOME/.local/share/bashplate"
+source "$_BASHPLATE_DIR/bashplate.sh"
+
+_usage="\
+Usage: $_FILENAME [options]
+Description of the program's function (identical).
+
+  Options:
+    -v, --verbose       be verbose
+    -h, --help          display this help text and exit\
+"
+
+while getopts_long :vh opt \
+    verbose 0 \
+    help 0 \
+    "" "$@"
+do
+    case "$opt" in
+        v|verbose) _VERBOSE=$(($_VERBOSE + 1)) ;;
+        h|help) _print_usage 0 ;;
+        :) _err "$OPTLERR"; _print_usage 1 ;;
+    esac
+done
+shift $((OPTLIND-1))
+
+css_file="/home/raehik/aqa-computing-html/main.css"
+highlight_css_file="/home/raehik/aqa-computing-html/highlight.css"
+
+IFS=$'\n'
+for d in $(find -type d); do
+    ./htmlify -d "$d" -c "$css_file"
+    ./indexify -d "$d" -c "$css_file" -g "$highlight_css_file" -o
+done

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>4-operating-systems.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="operating-systems">Operating systems</h2>
+
+<h3 id="role-of-an-os">Role of an OS</h3>
+
+<p>An OS does these two main things:</p>
+
+<ul>
+<li><strong>Hide hardware complexities</strong> from programs/user (&lsquo;virtual machine&rsquo;)</li>
+<li><strong>Manage resources</strong> for programs to ensure everything gets time to execute
+and that stuff doesn&rsquo;t have to be implemented individually for each program</li>
+</ul>
+
+<h4 id="resource-management">Resource management</h4>
+
+<ul>
+<li><strong>Processors</strong> -&gt; processor scheduling</li>
+<li><strong>Storage</strong> -&gt; memory management</li>
+<li><strong>I/O devices</strong> -&gt; I/O management</li>
+<li><strong>Data</strong> -&gt; file management</li>
+</ul>
+
+<h4 id="39-virtual-machine-39">&#39;Virtual machine&rsquo;</h4>
+
+<p><strong>Virtual machine:</strong> the apparent machine that the OS presents to the user,
+                     achieved by hiding the complexities of the hardware behind
+                     layers of OS software</p>
+
+<p>Essentially, an OS presents a &#39;virtual machine&rsquo; to the user and software, which
+is an interface to the underlying hardware. In this way, software can use a
+generic API provided by the OS and know that it would also work on another
+computer running the same OS.</p>
+
+<p><em>(Note: In the real world, we call this a kernel, or just API/function calls. A
+virtual machine is something entirely different&hellip; *</em><em>facepalm*</em></p>
+
+<h3 id="os-classification">OS classification</h3>
+
+<h4 id="types-of-os">Types of OS</h4>
+
+<ul>
+<li>Interactive
+
+<ul>
+<li>User can interact with system &amp; vice versa.</li>
+<li>e.g. ATM</li>
+</ul></li>
+<li>Real-time
+
+<ul>
+<li>Gives a guaranteed response within a concrete time period.</li>
+<li><em>&ldquo;the right answer late is wrong&rdquo;</em></li>
+<li>e.g. Plane rudder control system</li>
+</ul></li>
+<li>Batch/transaction
+
+<ul>
+<li>Input is queued and processed in batches when required or in time
+intervals</li>
+<li><strong>Not time-critical</strong></li>
+</ul></li>
+<li>Network
+
+<ul>
+<li>(kinda fake&hellip;)</li>
+<li>A <strong>layer of software</strong> which intercepts commands referencing resources
+elsewhere on the network and redirects them to the remote resource in a
+manner transparent to the user.</li>
+<li>e.g. how Windows lets you add &#39;remote drives&rsquo; (D:, &hellip; N:, &hellip;)</li>
+<li>Can <em>also</em> be interactive &amp; real-time</li>
+</ul></li>
+<li>Server
+
+<ul>
+<li>(also fake)</li>
+<li>Provides specialised services to network clients e.g. sharing printers</li>
+</ul></li>
+</ul>
+
+<p>Network can be thought of as another &#39;base&rsquo; OS. It&rsquo;s kind of stupid how they
+explain/use it. Same with server.</p>
+
+<h4 id="benefits-of-an-os-over-firmware">Benefits of an OS over firmware</h4>
+
+<p>Not all computers need an OS. For devices which may only perform one function,
+e.g. a washing machine, using an OS would <strong>inflate production costs</strong> and make
+things <strong>unnecessarily complex</strong>, so I think all washing machines use chips with
+embedded <strong>firmware</strong>. However, OSs can provide these functions:</p>
+
+<ul>
+<li>multitasking</li>
+<li>potential real-time operation</li>
+<li>upgrade hardware without having to change software</li>
+<li>OS replacement/upgrading, again without losing software functionality</li>
+</ul>
+
+<h4 id="different-devices-using-oss-and-not">Different devices using OSs and not</h4>
+
+<ul>
+<li><strong>Embedded computer system:</strong> system with a limited or non-existent UI,
+designed to operate autonomously from within other machinery</li>
+<li><strong>Desktop OS:</strong> an OS that allows a user to carry out a broad range of
+<em>general-purpose tasks</em></li>
+<li><strong>Client-server system:</strong> a system in which <em>clients</em> request services
+provided by <em>servers</em>, both being computers</li>
+<li><strong>Server OS:</strong> an OS optimised to providing one or more services to
+networked clients</li>
+</ul>
+
+<p><strong>Smartphones</strong> are now also computers with a generic OS. Developing for them is
+easy due to a standard API and often SDKs.</p>
+
+<p><strong>PDAs</strong> are some old shit which have been obsoleted by the rise of smartphones.
+However, both of these devices have similar requirements for their OS, in that
+they need to <strong>save energy</strong> wherever possible, and run on very limited
+resources (though this is less of a problem for today&rsquo;s smartphones).</p>
+
+<p>Cars these days would likely have a bunch of separate embedded computers, each
+with a dedicated purpose. The book mentions it&rsquo;s likely that as such hardware is
+developed and made more complex over time, things are going to move to OSs. e.g.
+it might start with having a basic kernel which switches between tasks based on
+a timer.</p>
+
+<p>Also consider that embedded systems <em>can be pretty complex</em>. Think about F1
+cars! Though to be honest they might just about qualify as OSs &ndash; exactly!</p>
+
+<p><strong>Desktop OSs</strong> nowadays have to do an awful lot: real-time processing for
+multimedia, shitloads of network protocols, handling multiple virtual disks
+(partitions), and way more. They are written <strong>modularly</strong> so that different
+parts can be upgraded separately. You can also assume that they have relatively
+high memory and processor speed requirements.</p>
+
+<p>The whole thing with clients and servers in this bit is that a client OS could
+ask a server OS to do something for it, e.g. build a program or store files, and
+it would theoretically be much faster/better because the server would be
+<strong>optimised</strong> for its respective service(s), and the client OS has less
+<strong>general-purpose processing</strong> to do.</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

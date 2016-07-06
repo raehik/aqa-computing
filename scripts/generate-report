@@ -1,0 +1,135 @@
+#!/usr/bin/env bash
+#
+# Generate an assignment submission for editing and submitting on Edmodo.
+#
+
+# GitHub user whom the repo belongs to
+github_user="raehik"
+
+# file inserted into the initial submission (specified with -i)
+readme_file="README.md"
+
+# file to write to
+submission_file="submission.md"
+
+# string to indent each commit line by
+commit_indent="    "
+
+usage() {
+    cat <<EOF
+Usage: ${0##*/} [options]
+Generates a template report for the current Git repo.
+
+  Options:
+    -s <hash>       start commit to use (otherwise HEAD == last commit)
+    -e <hash>       end commit to use (otherwise -1 == only start)
+    -i              initial commit: insert README.md as well
+    -v              append compiler version (GCC)
+    -o              project is in aqa-computing main repo: special GitHub link
+    -t              team project: put author name after commit hash
+    -f              fix end commit (??? why does it sometimes not work?)
+    -h              display this help message
+EOF
+}
+
+while getopts "s:e:ivotfh" opt; do
+    case $opt in
+        s) # start commit
+            start_hash="$OPTARG"
+            ;;
+        e) # end commit
+            end_hash="${OPTARG}"
+            ;;
+        i) # insert README.md
+            initial_submission="true"
+            ;;
+        v) # append version (GCC)
+            # sed bit removes trailing whitespace (gcc -v has a space on the end)
+            version_info="
+
+
+[compiled with $(gcc -v 2>&1 | tail -n1 | sed 's/ *$//')]"
+            ;;
+        o) # aqa-computing mode
+            aqa_computing="true"
+            ;;
+        t) # team project, include author name
+            team_project="true"
+            ;;
+        f) # fix end commit, maybe?
+            if [ -n "$end_hash" ]; then
+                end_hash="^${end_hash}^"
+            fi
+            ;;
+        h) # display usage message
+            usage
+            exit 0
+            ;;
+    esac
+done
+
+shift $(($OPTIND-1))
+
+if [ ! "$start_hash" ]; then
+    echo "no start commit provided -- using HEAD"
+    start_hash="HEAD"
+fi
+
+if [ ! "$end_hash" ]; then
+    echo "no end commit provided -- using -1"
+    end_hash="-1"
+fi
+
+# get a ton of info
+folder_name="$(basename "$(pwd)")"
+git_dirname="$(git rev-parse --show-toplevel)"
+git_root="$(basename "$git_dirname")"
+# um. this doesn't work unless it's HEAD
+git_branch="$(git rev-parse --abbrev-ref HEAD)"
+last_hash_full="$(git rev-parse $start_hash)"
+
+if [ $team_project ]; then
+    git_short_messages="$(git log $start_hash $end_hash --pretty="${commit_indent}%h (%an): %s")"
+else
+    git_short_messages="$(git log $start_hash $end_hash --pretty="${commit_indent}%h: %s")"
+fi
+
+# should check that all work, but this'll do for now (dunno what errors you get
+# if you provide an incorrect hash)
+if [ $? -ne 0 ]; then
+    echo "${0##*/}: error: a Git command failed. Do you have Git installed, are you in a repository, and does the commit hash you provided exist?"
+    exit 1
+fi
+
+if [ $aqa_computing ]; then
+    # git gets the real path, so we will too
+    real_pwd="$(pwd -P)"
+    git_relative_folder="${real_pwd#$git_dirname/}"
+    github_link="https://github.com/$github_user/$git_root/tree/$git_branch/$git_relative_folder"
+else
+    github_link="https://github.com/$github_user/$folder_name"
+fi
+
+if [ $initial_submission ]; then
+    # put $report_file's contents into a variable! :O
+    # it looks silly because I want more newlines
+    readme_text="
+
+$(< $readme_file)
+
+"
+else
+    readme_text=""
+fi
+
+# finally, generate the base report and put it in $assignment_file
+echo "**folder:** $github_link
+**commit:** https://github.com/$github_user/$git_root/commit/$last_hash_full
+$readme_text
+${git_short_messages}${version_info}" > "$submission_file"
+$EDITOR "$submission_file"
+
+# use printf to remove trailing newline (becos Firefox is duuuumb)
+#xsel -i < "$submission_file"
+printf '%s' "$(< $submission_file)" | xsel -i
+echo "[copied to clipboard, middle click to paste]"

@@ -1,0 +1,115 @@
+#!/usr/bin/env bash
+#
+# Indexify the current directory and put it in a new index.html .
+#
+
+outfile="index.html"
+dir_name="$(basename $(pwd))"
+css_file="main.css"
+highlight_css_file="highlight.css"
+
+_BASHPLATE_DIR="$HOME/.local/share/bashplate"
+source "$_BASHPLATE_DIR/bashplate.sh"
+
+_usage="\
+Usage: $_FILENAME [options]
+Indexify the current directory and put it in a new index.html .
+
+  Options:
+    -d, --dir           directory to operate on (default: .)
+    -o, --overwrite     overwrite a pre-existing index instead of failing
+    -t, --title         set index page title (\"Index of\" prefixed)
+    -c, --css           CSS file to use
+    -g, --highcss       Highlight CSS file to use
+    -v, --verbose       be verbose
+    -h, --help          display this help text and exit\
+"
+
+while getopts_long :vht:od:c:g: opt \
+    verbose 0 \
+    help 0 \
+    title 1 \
+    overwrite 0 \
+    dir 1 \
+    css 1 \
+    highcss 1 \
+    "" "$@"
+do
+    case "$opt" in
+        v|verbose) _VERBOSE=$(($_VERBOSE + 1)) ;;
+        h|help) _print_usage 0 ;;
+        :) _err "$OPTLERR"; _print_usage 1 ;;
+
+		t|title) dir_name="$OPTLARG" ;;
+        o|overwrite) continue_on_existing=true ;;
+        d|dir) using_dir="$OPTLARG" ;;
+        c|css) css_file="$OPTLARG" ;;
+        g|highcss) highlight_css_file="$OPTLARG" ;;
+    esac
+done
+shift $((OPTLIND-1))
+
+add_html() {
+    str_html="\
+$str_html
+<li><a href=\"$1\">$1</a></li>"
+}
+
+add_dir() {
+    str_dir="\
+$str_dir
+<li><a href=\"$1\">$1</a></li>"
+}
+
+add_file() {
+    str_file="\
+$str_file
+<li><a href=\"$1\">$1</a></li>"
+}
+
+write_index() {
+    content="<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=\"utf-8\">
+        <title>Index of $dir_name</title>
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"$css_file\">
+        <link rel=\"stylesheet\" type=\"text/css\" href=\"$highlight_css_file\">
+    </head>
+    <body>
+<h2>HTML files</h2>
+<ul>$str_html</ul>
+<h2>Directories</h2>
+<ul>$str_dir</ul>
+<h2>Other files</h2>
+<ul>$str_file</ul>
+    </body>
+</html>"
+    echo "$content" > "$outfile"
+}
+
+if [[ -d "$using_dir" ]]; then
+    cd "$using_dir"
+else
+    _err "not a directory: $using_dir"
+fi
+
+if [[ -e "$outfile" ]]; then
+    if [[ $continue_on_existing ]]; then
+        rm "$outfile"
+    else
+        _err "index file $outfile already exists (use -o to override)" 1
+    fi
+fi
+
+for f in *; do
+    if [[ "$f" == *.html ]]; then
+        add_html "$f"
+    elif [[ -d "$f" ]]; then
+        add_dir "$f"
+	else
+        add_file "$f"
+    fi
+done
+
+write_index

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>common-questions.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h1 id="common-questions">Common questions</h1>
+
+<p>These are common questions taken from the COMP2 papers. I used the
+markscheme for reference, so my answers here may differ from my notes. I
+try to keep my notes as factually accurate as I can be bothered, while
+in these questions I&rsquo;m showing you what AQA want you to write.</p>
+
+<h2 id="define-the-principles-of-operation-of-object">Define the principles of operation of [object].</h2>
+
+<p>I have no idea how to answer these questions. Some devices which have
+come up are:</p>
+
+<ul>
+<li>a camera (? what type? and which year?)</li>
+<li>a bar code reader <em>(AQA Jun14)</em> &ndash; I did OK at that question, IMO</li>
+</ul>
+
+<h2 id="describe-the-fetch-execute-cycle">Describe the fetch-execute cycle.</h2>
+
+<h3 id="long-answer-question">Long-answer question</h3>
+
+<p>The <strong>contents of the PC</strong> are transferred to the <strong>MAR</strong> via the
+<strong>address bus</strong>.  Next, the <strong>contents of the addressed memory
+location</strong> are loaded into the <strong>MBR</strong>. They are transferred over the
+<strong>data bus</strong>. The <strong>PC is incremented</strong> <strong><em>simultaneously</em></strong>. After
+that, the <strong>contents of the MBR</strong> are transferred to the <strong>CIR</strong>.</p>
+
+<p>The <strong>control unit</strong> (CU) <strong>decodes</strong> the instruction in the CIR and
+splits it into an <strong>opcode and operands</strong>. The opcode tells the
+processor the type of instruction it is. If required, <strong>data is
+fetched</strong>. The instruction is then <strong>executed</strong>. This may involve
+transferring data to the arithmetic and logic unit (ALU) and having it
+perform an arithetic or logical operation on the data. After the
+instruction is executed, the result is stored in the <strong>accumulator</strong> and
+the <strong>SR</strong> is updated.</p>
+
+<h3 id="register-transfer-notation">Register transfer notation</h3>
+
+<ol>
+<li>MAR &lt;&ndash; [PC]</li>
+<li>PC &lt;&ndash; [PC] + 1 &amp;&amp; MBR &lt;&ndash; [Memory]<sub>addressed</sub></li>
+<li>CIR &lt;&ndash; [MBR]</li>
+<li>Decode instruction</li>
+<li>Execute instruction</li>
+</ol>
+
+<h2 id="describe-the-roles-of-each-layer-in-the-tcp-ip-stack">Describe the roles of each layer in the TCP/IP stack.</h2>
+
+<p>Sending:</p>
+
+<ol>
+<li><strong>Application layer:</strong> select appropriate protocol</li>
+<li><strong>Transport layer</strong>: split data into packets, establish an
+ end-to-end connection</li>
+<li><strong>Network layer</strong>: adds source &amp; destination IP addresses</li>
+<li><strong>Link layer</strong>: physical interface with cabling, adds MAC addresses</li>
+</ol>
+
+<p>Receiving:</p>
+
+<ol>
+<li><strong>Link layer</strong>: strips MAC addresses</li>
+<li><strong>Network layer</strong>: strips source &amp; destination IP addresses</li>
+<li><strong>Transport layer</strong>: reassembles data from packets</li>
+<li><strong>Application layer:</strong> ? program uses data</li>
+</ol>
+
+<h2 id="what-is-packet-switching">What is packet switching?</h2>
+
+<p>Messages are split into packets, then numbered, then forwarded to their
+destination, then reassembled.</p>
+
+<h2 id="html-questions">HTML questions</h2>
+
+<p>There are a few different ones AQA like to ask. Usually they&rsquo;re quite
+fun, but surprisingly easy to lose marks on.</p>
+
+<p>Remember these things:</p>
+
+<ul>
+<li>All headers are assumed to be larger than normal <code>&lt;p&gt;</code>s.</li>
+<li>When a list finishes, there&rsquo;s a paragraph gap between it and the
+next element.</li>
+<li>When a header is coming up, there&rsquo;s a bigger gap between the end of
+the last element and the header.</li>
+<li>Lists are begun with <code>&lt;ol&gt;</code> (for an ordered list) or <code>&lt;ul&gt;</code> (for an
+unordered list), then elements are specified with <code>&lt;li&gt;</code>.</li>
+</ul>
+
+<h2 id="which-legislation-does-this-act-fall-under">Which legislation does this act fall under?</h2>
+
+<ul>
+<li>A computer administrator installs software onto their family&rsquo;s home
+computer which was licensed for use in their company.
+
+<ul>
+<li>Copyright, Designs &amp; Patents Act</li>
+</ul></li>
+<li>A goverment body asks the owner of a voice-communication program to
+hand over the logs belonging to a suspected criminal.
+
+<ul>
+<li>Regulation of Investigatory Powers Act</li>
+</ul></li>
+</ul>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

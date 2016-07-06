@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Run gifscript in a more preferred environment (& with right geometry).
+#
+
+i3-msg 'workspace 10'
+urxvt +tr -e bash -c "i3-msg 'floating toggle' && bash gifscript $1"
+i3-msg 'workspace back_and_forth'

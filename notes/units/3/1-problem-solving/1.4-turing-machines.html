@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>1.4-turing-machines.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="turing-machines">Turing machines</h2>
+
+<ul>
+<li><strong>Turing machine:</strong> an FSM that controls one or more tapes, where at least
+                    one tape is infinitely long</li>
+</ul>
+
+<p><strong>All computers are reducible to equivalent Turing machines.</strong></p>
+
+<p>In a Turing machine, a <strong>program</strong> consisted of &ldquo;a precise set of instructions
+given to the computer relating actions to observations&rdquo;. e.g. <em>&ldquo;If you read a 1
+in the square you are scanning, replace it with a 0 and move one square to the
+left.&rdquo;</em></p>
+
+<p>Note that the tape can be 1D, 2D, 3D etc. &ndash; but <strong>a tape with more than one
+dimension doesn&rsquo;t increase computational power</strong>. Anyway that can be done with a
+2D tape can be done just as well with a 1D tape. Same with symbols &ndash; everything
+can be done with 2 symbols. Any Turing machine must have a special <em>blank</em>
+symbol, and one or more other symbols. So the simplest case might use 0 (as the
+&lsquo;blank&rsquo; symbol) and 1.</p>
+
+<p>Turing defined a <strong>simple operation</strong> to be one that can&rsquo;t be divided further. A
+simple operation must (?) be one of these things:</p>
+
+<ul>
+<li>a possible change of symbol together with a possible change of state of mind</li>
+<li>a possible change of observed square together with a possible change of
+state of mind</li>
+</ul>
+
+<p>When talking about a Turing machine&rsquo;s state, remember that if something is at
+state X, then they <strong>haven&rsquo;t yet done any transitions away from state X</strong>. So a
+good way of telling what state you&rsquo;re in is by saying, &ldquo;How did I get here?&rdquo;</p>
+
+<p><em>(Note: The book is wrong yet again on page 41, where it states that (□11, 3,
+1) is a valid stage of execution. It&rsquo;s not: it should be (□111, 3, □), since the
+state change is made during the same state transition as the symbol change.)</em></p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

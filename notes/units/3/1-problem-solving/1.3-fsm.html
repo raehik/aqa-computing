@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>1.3-fsm.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="finite-state-machines">Finite state machines</h2>
+
+<h3 id="overview">Overview</h3>
+
+<ul>
+<li><strong>FSM:</strong> an abstract machine/model used to design programs and algorithms</li>
+</ul>
+
+<p>A <strong>finite state machine</strong> (FSM) is a model used to design programs and
+algorithms. Real-life applications include:</p>
+
+<ul>
+<li>traffic lights</li>
+<li>vending machines</li>
+<li>regular expressions</li>
+<li>language parsing</li>
+</ul>
+
+<p>FSMs are <em>abstract machines</em> which can be in one of a finite number of states at
+any one time (named the <strong>current state</strong>). A change from the current state to
+another state is called a <strong>transition</strong>.</p>
+
+<p>An FSM which does not produce output is known as <strong>finite state automaton</strong>
+(FSA). FSMs which do produce output are classified into <strong>Mealy</strong> and <strong>Moore</strong>
+machines &ndash; more on those later. Remember that an &lsquo;output&rsquo; can be also be an
+<em>action</em>!</p>
+
+<p>FSMs have a defined set of input symbols, named the <strong>input alphabet</strong>, and if
+they produce output then they have an <strong>output alphabet</strong>.</p>
+
+<p>A <strong>state transition diagram</strong> is a special type of directed graph. Nodes
+represent states and arcs represent a transition between two states. Arcs are
+labelled with a symbolic code, e.g. <em>a | b</em>. <em>a</em> is the <strong>trigger</strong> and denotes
+the input symbol, and <em>b</em> (optional, depends on the FSM type) denotes the output
+symbol. That is, a <strong>label</strong> is a trigger-output pair.</p>
+
+<p>An FSM consists of these things:</p>
+
+<ul>
+<li>input symbol alphabet</li>
+<li><em>If output:</em> output symbol alphabet</li>
+<li>finite set of states</li>
+<li>transition function</li>
+</ul>
+
+<h3 id="transition-table-example">Transition table example</h3>
+
+<ul>
+<li><strong>Transition function:</strong> maps a state-symbol pair to another state-symbol
+                         pair (a pair being (in/out symbol, state))</li>
+</ul>
+
+<p><em>(Note: Remember that &#39;trigger&rsquo; is used interchangeably with &#39;input symbol&rsquo;, at
+least in the textbook.)</em></p>
+
+<p>Remember that FSMs have a <em>finite set of states</em>. For this example, let&rsquo;s
+imagine an FSM with states {s, t}, input alphabet {a, b} and output alphabet {a,
+b}. This FSM has a <strong>transition function</strong> which maps a state-symbol pair to a
+new state and we&rsquo;ll say that it also generates an specific output symbol for
+each transition. We can use a <strong>transition table</strong> to represent this transition
+function:</p>
+<div class="highlight"><pre>Current state | s | s | t | t
+--------------|---|---|---|---
+Input symbol  | a | b | a | b
+--------------|---|---|---|---
+Next state    | t | s | s | t
+--------------|---|---|---|---
+Output symbol | b | a | b | a
+</pre></div>
+<p>It should be clear that this FSM changes &#39;b&rsquo;s into &#39;a&rsquo;s and vice versa.</p>
+
+<ul>
+<li><strong>Deterministic:</strong> each state-symbol pair has <em>only one</em> next state</li>
+<li><strong>Non-deterministic:</strong> state-symbol pairs may have several possible next
+                       states</li>
+</ul>
+
+<p>In order to make a FSM <strong>deterministic</strong>, it is required that each trigger has
+<em>only one outgoing transition from any one state</em> at most (there can of course
+be zero). So if there were two different transitions for the same trigger on one
+state, that FSM would be <strong>non-deterministic</strong> since it contains an ambiguity.</p>
+
+<h3 id="halting-states-amp-errors">Halting states &amp; errors</h3>
+
+<ul>
+<li><strong>Halting state:</strong> a state with no outgoing transitions</li>
+</ul>
+
+<p>A state which has no outgoing transitions is called a <strong>halting state</strong>. Most of
+the time, if an FSM is stuck in a halting state with input remaining, it will
+report an error.</p>
+
+<p>If the input trigger doesn&rsquo;t exist for the current state, an error is usually
+reported.</p>
+
+<h3 id="fsm-designs">FSM designs</h3>
+
+<ul>
+<li>Action instead of outputting e.g. a symbol</li>
+<li>&#39;Signal&rsquo; instead of input symbol</li>
+<li>&#39;Catch-all&rsquo; case if ([input symbol, ]current state) &ndash;&gt; (action, next state)
+produces no matches &ndash; e.g. exception handler state/action called</li>
+<li>A transition to a specific state can have multiple labels (trigger/output
+pair)</li>
+</ul>
+
+<h3 id="fsms-with-output">FSMs with output</h3>
+
+<ul>
+<li><strong>Mealy machine:</strong> determines its outputs from current state &amp; inputs &ndash;
+                   i.e. <em>during state transition</em></li>
+<li><strong>Moore machine:</strong> determines its outputs from current state &ndash; i.e. <em>the
+                   state is the output</em></li>
+</ul>
+
+<p>As explained earlier, there are two types of FSM: ones without output (automata)
+and ones with output. FSAs are restricted to binary decisions. FSMs with output
+may be further classified into <strong>Mealy machines</strong> and <strong>Moore machines</strong>. See
+the book for a decent example that I don&rsquo;t want to recreate here.</p>
+
+<p>Because the current state in a Moore FSM is determined by the sequence of inputs
+it has processed, it possesses <strong>memory capability</strong>. The textbook says that a
+Moore machine actually <em>models a RAM unit</em>, which may be important to know.</p>
+
+<h3 id="finite-state-automata">Finite state automata</h3>
+
+<ul>
+<li><strong>Accepting state:</strong> the &#39;end&rsquo; state which produces a YES output</li>
+</ul>
+
+<p>FSAs solve YES/NO decision problems, i.e. &ldquo;does a string match this pattern?&rdquo;.
+It simply runs through the input symbols until it reaches the end, and outputs a
+YES or NO response depending on the end state. If it&rsquo;s an <strong>accepting state</strong>,
+which have <strong>two rings around the state name</strong>, them a YES response is output.
+Else, it&rsquo;s a NO response. Remember that an FSA must <em>always have &gt;= 1 accepting
+states</em>.</p>
+
+<h4 id="deterministic-and-non-deterministic-fsas-dfas-and-nfas">Deterministic and non-deterministic FSAs (DFAs and NFAs)</h4>
+
+<p>So far we&rsquo;ve been talking about DFAs. NFAs wouldn&rsquo;t seem all that useful: for a
+given state, an input could have <strong>multiple transitions to different states</strong>.
+So it has to make a choice somehow, which isn&rsquo;t so helpful. However, NFAs are
+very useful for expressing <em>pattern searches</em>; and what&rsquo;s more, <strong>any problem
+solved with an NFA can also be solved with a DFA.</strong> You just have to swap and
+add states.</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

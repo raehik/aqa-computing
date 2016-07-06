@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>notes.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="fetch-execute-cycle">Fetch-Execute cycle</h2>
+
+<p><em>Note: see <code>/exams/comp2/common-questions.md</code> for a definitive guide on
+questions about the FET cycle.</em></p>
+
+<ol>
+<li><p>Instruction time / I-time</p>
+
+<ol>
+<li><strong>Fetch:</strong> Next instruction fetched from address currently in PC and
+        stored in IR. Finally, increment PC.</li>
+<li>Fetch address &lt;- PC</li>
+<li>Store address -&gt; IR</li>
+<li>Increment PC</li>
+<li><strong>Decode:</strong> </li>
+</ol></li>
+<li></li>
+<li><p>Load PC -&gt; MAR</p></li>
+<li><p>Increment PC</p></li>
+<li><p>Execute instruction</p></li>
+<li><p>PC -&gt; MAR to determine location of next instruction</p>
+
+<ol>
+<li>CU <strong>fetches</strong> instruction from memory &amp; puts in IR</li>
+<li>CU <strong>decodes</strong> instruction &amp; <strong>directs</strong> that the necessary data is
+<strong>moved</strong> from memory -&gt; ALU.
+
+<ul>
+<li>e.g. if instruction is reg. 1 + reg. 2, then reg. 1 &amp; 2 must be
+fetched</li>
+</ul></li>
+</ol></li>
+<li><p>ALU <strong>performs</strong> an operation</p></li>
+<li><p>ALU <strong>stores</strong> result in a register</p></li>
+</ol>
+
+<p><img src="http://upload.wikimedia.org/wikipedia/commons/5/52/Comp_fetch_execute_cycle.png" alt="Fetch-execute
+cycle"></p>
+
+<h2 id="register-notation">Register notation</h2>
+
+<p>The following is adapted from the <a href="http://en.wikibooks.org/wiki/A-level_Computing/AQA/Computer_Components,_The_Stored_Program_Concept_and_the_Internet/Machine_Level_Architecture/The_Fetch%E2%80%93Execute_cycle_and_the_role_of_registers_within_it">AQA Computing
+Wikibook</a>.</p>
+
+<ol>
+<li>\(MAR \gets [PC]\)</li>
+<li>\(MBR \gets [Memory]_{MAR\ address}\) and, simultaneously, \(PC \gets [PC]+1\)</li>
+<li>\(CIR \gets [MBR]\)</li>
+<li>\([CIR]\) decoded then executed</li>
+</ol>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

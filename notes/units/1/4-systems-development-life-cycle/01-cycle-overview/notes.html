@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>notes.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="introduction">Introduction</h2>
+
+<p><em>(Note: The <a href="https://en.wikibooks.org/wiki/A-level_Computing/AQA/Problem_Solving,_Programming,_Data_Representation_and_Practical_Exercise/Systems_Development_Life_Cycle/The_cycle">Wikibook</a> for this course has great resources on the
+systems development life cycle.)</em></p>
+
+<p>A <strong>systems development life cycle</strong> (SDLC in short) is a model of the
+stages that software in development may go through. There are multiple
+SDLC models, such as <a href="https://en.wikipedia.org/wiki/Agile_software_development">agile software development</a> or the
+<a href="https://en.wikipedia.org/wiki/Waterfall_model">waterfall model</a>. In AQA AS Computing you learn about one
+basic model, shown in the diagram below.</p>
+
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/CPT-SystemLifeSycle.svg" alt="AQA systems dev life cycle diagram"></p>
+
+<p>In text, this is how it progresses:</p>
+
+<ol>
+<li>Analysis</li>
+<li>Design</li>
+<li>Implementation</li>
+<li>Testing</li>
+<li>Evaluation</li>
+</ol>
+
+<p>Then it cycles back round to analysis, and so on.</p>
+
+<p>Note that this is a <strong>cycle</strong>. Development is an <em>iterative process</em>,
+and many of the separate phases are iterative themselves (I remember
+Code Complete continually saying design is an iterative process).</p>
+
+<h2 id="phases">Phases</h2>
+
+<h3 id="analysis">Analysis</h3>
+
+<p>The <strong>analysis</strong> phase aims to understand why the new system is
+<em>required</em>, and what exactly the client really wants the system to
+<em>do</em>. Common reasons for a new system include:</p>
+
+<ul>
+<li>Scale changes in the organisation (i.e. new department)</li>
+<li>Outdated technologies</li>
+</ul>
+
+<p>This phase is important because if the problem is not specified well
+enough, you might not be <em>solving the correct problem</em>.</p>
+
+<p>The ZigZag course companion (labelled as Student Notes) actually uses
+terms which are pretty familiar to me. It says that before a project is
+officially &lsquo;commenced&rsquo;, a <strong>problem definition</strong> and some specific
+<strong>requirements</strong> must be cranked out. See Code Complete for what those
+might include or mean.</p>
+
+<h3 id="design">Design</h3>
+
+<p>The <strong>design</strong> phase involves producing a detailed plan, enough that
+any decent programmer could understand how to implement the system. Some
+things you may think about are:</p>
+
+<ul>
+<li>Data file format</li>
+<li>User interface</li>
+</ul>
+
+<p>This phase is important because it helps <em>spot mistakes early in
+development</em>. Fixing mistakes in the design phase is <em>much</em> cheaper than
+fixing them during implementation (backed by many studies).</p>
+
+<p>One method of designing is <strong>prototyping</strong>, where a working <em>model</em> is
+created to show the client how the system is planned to turn out.</p>
+
+<p>Note that designing the interface may involve many considerations, such
+as <em>&ldquo;who is using the system?&rdquo;</em> and <em>&ldquo;How should the user be able to use
+the system?&rdquo;</em></p>
+
+<h3 id="implementation">Implementation</h3>
+
+<p>The <strong>implementation</strong> phase is composed of not only &#39;making&rsquo; the
+system, but also many other just-as-important tasks. These are the main
+points for implementation:</p>
+
+<ul>
+<li>Programming software / Making hardware</li>
+<li>Installing the system</li>
+<li>Training users</li>
+<li>Writing system documentation</li>
+</ul>
+
+<p>This phase is important because it&rsquo;s where the system is <em>actively
+created</em>. Kind of an obvious reason.</p>
+
+<h3 id="testing">Testing</h3>
+
+<p>The <strong>testing</strong> phase is important because it is where a decision is
+made on <em>whether the system matches the user&rsquo;s</em> <strong><em>requirements</em></strong> and
+works in practice. You need to know about a multitude of testing
+methods:</p>
+
+<ul>
+<li>Black box testing
+
+<ul>
+<li>Enter input, see if the output is the desired result. Do not
+consider the internals &ndash; imagine that they are a black box.</li>
+</ul></li>
+<li>White box testing
+
+<ul>
+<li>Conduct tests which consider all possible &#39;paths&rsquo; in the
+program/algorithm and hope that the output is the desired result.</li>
+</ul></li>
+<li>Dry-run testing
+
+<ul>
+<li>Work through the algorithm manually</li>
+</ul></li>
+</ul>
+
+<p>When working with algorithms in dry-run testing you may use a <strong>trace
+table</strong>. This is simply a table of variable values at different states
+(just like how you set out an unknown algorithm question in Maths D1).</p>
+
+<p>Furthermore, systems should be tested using different types of data:</p>
+
+<ul>
+<li>Normal data</li>
+<li>Normal boundary data
+
+<ul>
+<li>Normal data which is on the boundary of valid data.</li>
+</ul></li>
+<li>Incorrect data
+
+<ul>
+<li>Data with the correct format/type but which is invalid.</li>
+</ul></li>
+<li>Invalid data
+
+<ul>
+<li>Wrong type data e.g. string in a numeric field.</li>
+</ul></li>
+</ul>
+
+<p>A good system should deal with all these data reliably and properly.</p>
+
+<h3 id="evaluation">Evaluation</h3>
+
+<p>In the <strong>evaluation</strong> phase, the current system (not necessarily
+&#39;finished&rsquo;) is compared to the original <strong>requirements</strong> and the client
+is asked for feedback. Other things that may be looked at in evaluating
+a system include:</p>
+
+<ul>
+<li>Cost of maintenance</li>
+<li>Cost of system compared to predicted</li>
+<li>Time of completion compared to predicted</li>
+</ul>
+
+<p>This phase is important because it is where <em>potential problems or
+improvements</em> may be uncovered. Some cases may call for another cycle of
+the SDLC. Other issues may simply require some small changes to a part
+of the system: this is called <strong>software maintenance</strong>. <em>(I believe that
+becomes more important in A2.)</em></p>
+
+<h2 id="other-reading">Other reading</h2>
+
+<p>For further discussion of the stages of a software development project
+and lots of things more, I recommend Code Complete by Steve McConnell
+(especially the first few chapters).</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

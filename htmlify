@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+#
+# Short description of the program/script's operation/function.
+#
+
+_BASHPLATE_DIR="$HOME/.local/share/bashplate"
+source "$_BASHPLATE_DIR/bashplate.sh"
+
+using_dir="."
+css_file="main.css"
+
+_usage="\
+Usage: $_FILENAME [options]
+Description of the program's function (identical).
+
+  Options:
+    -d, --dir           directory to operate on (default: .)
+    -c, --css           CSS file to use
+    -v, --verbose       be verbose
+    -h, --help          display this help text and exit\
+"
+
+while getopts_long :vhd:c: opt \
+    verbose 0 \
+    help 0 \
+    dir 1 \
+    css 1 \
+    "" "$@"
+do
+    case "$opt" in
+        v|verbose) _VERBOSE=$(($_VERBOSE + 1)) ;;
+        h|help) _print_usage 0 ;;
+        :) _err "$OPTLERR"; _print_usage 1 ;;
+
+        d|dir) using_dir="$OPTLARG" ;;
+        c|css) css_file="$OPTLARG" ;;
+    esac
+done
+shift $((OPTLIND-1))
+
+if [[ -d "$using_dir" ]]; then
+    cd "$using_dir"
+else
+    _err "not a directory: $using_dir"
+fi
+
+for md_file in *.md; do
+    if [[ "$md_file" == '*.md' ]]; then
+        break
+    fi
+    markdown-render -c "$css_file" "$md_file" > "${md_file%.*}.html"
+done

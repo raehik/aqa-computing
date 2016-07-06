@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>notes.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="error-checking">Error checking</h2>
+
+<p>Error checking is an important thing because information can easily be
+mangled during transmission, and sending something twice is a pretty
+inefficient way of checking.</p>
+
+<h3 id="parity-bits">Parity bits</h3>
+
+<p>In mathematics, the <strong>parity</strong> of a number describes whether it is
+<em>even</em> or <em>odd</em>. For example, 2 and 4 have the same parity.</p>
+
+<p>In computers, parity bits are added to bit codes to provide some simple
+error detection. There are two different parity systems, <strong>even parity</strong>
+and <strong>odd parity</strong>. </p>
+
+<ul>
+<li><strong>Even parity:</strong> the parity of all bits (inc. parity bit) is made
+even</li>
+<li><strong>Odd parity:</strong> the parity of all bits (inc. parity bit) is made odd</li>
+</ul>
+
+<p>There is also the question of where to place the bit in the code.
+<a href="!Wikipedia" title="Parity bit">Wikipedia states</a> that it is <em>&ldquo;added to the
+end of a string of binary code&rdquo;</em>, which I agree makes most sense, but
+<strong><em>N.B.: AQA expect you to make the parity bit the MSB</em></strong> (i.e. put it
+at the start of the code). This means normally (MSB first) it&rsquo;ll be the
+leftmost bit. If you need to add a parity bit to an LSB first code, then
+I&rsquo;d put it at the right, where the MSB goes.</p>
+
+<p>tl;dr AQA dumb as shit</p>
+
+<h3 id="hamming-code">Hamming code</h3>
+
+<p>Can <em>detect</em> up to <strong>two</strong> errors and <em>correct</em> <strong>one</strong>.</p>
+
+<h4 id="method">Method</h4>
+
+<ol>
+<li>Write out lots of columns and number them 1 -&gt; X.</li>
+<li>Label all the powers of 2, <strong><em>including 1</em></strong>, as parity bits</li>
+<li>Write the actual code in the gaps.</li>
+<li>Work out the parities as follows:
+
+<ol>
+<li>lol</li>
+<li>etc</li>
+</ol></li>
+</ol>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>

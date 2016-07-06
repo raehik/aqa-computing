@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>6.2-networks.md</title>
+        <link rel="icon" href="/home/raehik/.assets/favicon.png">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/aqa-computing-html/main.css">
+        <link rel="stylesheet" type="text/css" href="/home/raehik/.assets/style-pygments.css">
+        
+    </head>
+    <body>
+<!-- START RENDERED MARKDOWN {{{ -->
+<h2 id="networks">Networks</h2>
+
+<ul>
+<li><strong>Topology:</strong> the shape/layout/configuration/structure of network device
+              connections (i.e. how network devices are connected)</li>
+</ul>
+
+<h3 id="bus-topology">Bus topology</h3>
+
+<p>In a bus network, all computers are linked to a single bus/transmission medium.
+TODO</p>
+
+<h3 id="star-topology">Star topology</h3>
+
+<p>In a star network, each computer is connected via a single link to a <strong>central
+computer</strong>. So it looks like a star going outwards from the main node.</p>
+
+<h3 id="subnets">Subnets</h3>
+
+<p><em>Note: In the course, it seems they prefer you to use the name</em> <strong><em>network ID</em></strong>
+<em>rather than the Wikipedia equivalent, network prefix. I&rsquo;ll use the proper
+one, but keep it in mind.</em></p>
+
+<p><em>Note note: I might be wrong because a network ID may be something slightly
+different, but it won&rsquo;t matter for the exam :)</em></p>
+
+<p>A <strong>subnet</strong> is a subdivision of an IP network. If a computer is in the same
+subnet as another computer, then they can communicate directly. Otherwise,
+requests must go through some other device (&gt;1 router?). Thus subnets are
+usually used for performance and security reasons.</p>
+
+<p>Computers that belong in the same subnet have a common part in their IP
+addresses. Look at the following IPs:</p>
+
+<ul>
+<li>192.168.1.1</li>
+<li>192.168.1.107</li>
+</ul>
+
+<p>As you can see, you can divide an IP address into two parts: the identical part
+is known as the <strong>network prefix</strong>, and the other bit is the <strong>host
+identifier</strong>. That&rsquo;s good: because of the ordering, computers can easily tell
+whether two hosts are in the same network.</p>
+
+<p>&hellip;I may have told a bit of a lie back there! My example only works in
+situations where there is <strong>no subnetting</strong> (or there is only one subnet
+available). In reality, because of the reasons above, networks use <strong>subnets</strong>,
+where the subnet number is known from part of the host number. Each IP address
+has an associated <strong>subnet mask</strong> that determines which subnet it is a part of.
+The name &lsquo;subnet mask&rsquo; comes from the fact that it is applied as a bitmask to IP
+addresses.</p>
+
+<p>To determine the network prefix of an IP address, you AND the IP address
+together with the subnet mask.</p>
+
+<h3 id="exam-question-different-networks">Exam question: different networks</h3>
+
+<p>Simplified from qu. 3d from COMP3 Jun15:</p>
+
+<blockquote>
+<p>Explain how a desktop computer with IP address 192.168.0.2 and subnet mask
+255.255.255.0 will use the subnet mask to determine that the data it wants
+to send to an FTP server at 67.84.23.102 must be sent over the Internet
+rather than locally.</p>
+</blockquote>
+
+<p><em>A:</em> An AND operation is performed using the host computer&rsquo;s subnet mask and
+each IP address in turn, to produce two network IDs. If these are different,
+then the desktop computer knows that the computers reside on different networks.</p>
+<!-- END RENDERED MARKDOWN }}} -->
+    </body>
+</html>
