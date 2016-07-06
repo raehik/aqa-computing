@@ -28,8 +28,8 @@ do
 done
 shift $((OPTLIND-1))
 
-css_file="/home/raehik/aqa-computing-html/main.css"
-highlight_css_file="/home/raehik/aqa-computing-html/highlight.css"
+css_file="/aqa-computing/main.css"
+highlight_css_file="/aqa-computing/highlight.css"
 
 IFS=$'\n'
 for d in $(find -type d); do
